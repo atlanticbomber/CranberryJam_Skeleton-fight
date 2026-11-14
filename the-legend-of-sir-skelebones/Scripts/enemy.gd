@@ -37,7 +37,7 @@ func _on_snapshot_timer_timeout() -> void:
 	#print(Vector2(playerSnapshot.x - position.x,playerSnapshot.y - position.y),Vector2(playerSnapshot.x - position.x,playerSnapshot.y - position.y).normalized())
 	timerSnapshot.start(waitTimeSnapshot)
 	
-func takeDamage(value:float):
+func EnemyDamage(value:float):
 	#checks if getting knocked, death check, health change, knock back
 	if timerKnock.is_stopped():
 		if EnemyHP - value <= 0:

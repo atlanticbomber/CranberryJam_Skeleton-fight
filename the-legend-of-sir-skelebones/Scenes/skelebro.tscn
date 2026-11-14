@@ -7,6 +7,10 @@
 radius = 62.0
 height = 124.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
+radius = 80.0
+height = 400.0
+
 [node name="Skelebro" type="CharacterBody2D" unique_id=1342470513]
 script = ExtResource("1_hodaq")
 
@@ -21,3 +25,13 @@ position_smoothing_enabled = true
 
 [node name="RollCooldown" type="Timer" parent="." unique_id=991862256]
 one_shot = true
+
+[node name="WeaponCooldown" type="Timer" parent="." unique_id=284254133]
+one_shot = true
+
+[node name="WeaponRange" type="Area2D" parent="." unique_id=187323184]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRange" unique_id=1446454061]
+position = Vector2(200, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fn4k1")
