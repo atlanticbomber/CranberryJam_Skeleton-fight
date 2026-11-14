@@ -10,7 +10,7 @@ var rollWaitTimer: float = 2.0
 @onready var weaponRange: Area2D = $WeaponRange
 @onready var weaponShape: CollisionShape2D = $WeaponRange/CollisionShape2D
 @onready var weaponTimer: Timer = $WeaponCooldown
-var weaponDelay: float = 0.2
+var weaponDelay: float = 1.0
 var weaponCooldown: float  = 1.0
 
 func _ready() -> void:
@@ -51,9 +51,11 @@ func _physics_process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and weaponTimer.is_stopped():
 		print("frame",get_tree().get_frame())
+		weaponTimer.start(weaponDelay)
+		await weaponTimer.timeout
 		for body in weaponRange.get_overlapping_bodies():
 			if body.has_method("EnemyDamage"):
-				weaponTimer.start(weaponDelay)
 				var tempDmg = 10.0
+				$Attack.play()
 				body.EnemyDamage(tempDmg)
-				weaponTimer.start(weaponCooldown)
+		weaponTimer.start(weaponCooldown)

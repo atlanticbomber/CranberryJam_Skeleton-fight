@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_qu763"]
+[ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4euk"]
 radius = 62.0
@@ -35,3 +36,6 @@ one_shot = true
 position = Vector2(200, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_fn4k1")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=342455274]
+stream = ExtResource("3_851mo")

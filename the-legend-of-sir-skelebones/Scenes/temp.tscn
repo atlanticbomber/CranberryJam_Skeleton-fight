@@ -33,3 +33,6 @@ motion_mode = 1
 [node name="Enemy" parent="." unique_id=104442209 instance=ExtResource("3_tj4h3")]
 position = Vector2(434, 503)
 motion_mode = 1
+
+[node name="Enemy2" parent="." unique_id=1993680582 instance=ExtResource("3_tj4h3")]
+position = Vector2(-124, 684)
