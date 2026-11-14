@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var currentWeapon:WeaponResource
+
 const SPEED = 350.0
 
 var rollBonus: float = 1
@@ -7,18 +9,16 @@ var rollConst: float = 3.0
 var rollWaitTimer: float = 2.0
 @onready var rollTimer: Timer = $RollCooldown
 
+@onready var IFrames: Timer = $ICooldown
+var IFramesWaitTime: float = 1.0
+
 @onready var weaponRange: Area2D = $WeaponRange
 @onready var weaponShape: CollisionShape2D = $WeaponRange/CollisionShape2D
 @onready var weaponTimer: Timer = $WeaponCooldown
-var weaponDelay: float = 1.0
-var weaponCooldown: float  = 1.0
 
 func _ready() -> void:
-	var newShape = CapsuleShape2D.new()
-	newShape.height = 350
-	newShape.radius = 175 #at most height/2
-	weaponShape.shape = newShape
-	weaponShape.position.x = newShape.height/2
+	weaponShape.shape = currentWeapon.shape
+	weaponShape.position.x = (currentWeapon.shape.height/2) - currentWeapon.towardsCenter
 
 func _physics_process(_delta: float) -> void:
 	#Rolling stuff
@@ -44,18 +44,23 @@ func _physics_process(_delta: float) -> void:
 	weaponRange.look_at(get_global_mouse_position())
 	#print(weaponRange.get_overlapping_bodies())
 	
-	
 	Stats.PlayerLocation = position
 	move_and_slide()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and weaponTimer.is_stopped():
 		print("frame",get_tree().get_frame())
-		weaponTimer.start(weaponDelay)
+		weaponTimer.start(currentWeapon.delay)
 		await weaponTimer.timeout
 		for body in weaponRange.get_overlapping_bodies():
 			if body.has_method("EnemyDamage"):
 				var tempDmg = 10.0
 				$Attack.play()
 				body.EnemyDamage(tempDmg)
-		weaponTimer.start(weaponCooldown)
+		weaponTimer.start(currentWeapon.cooldown)
+
+func takeDamage(damage:int):
+	if IFrames.is_stopped():
+		Stats.PlayerHP -= damage
+		IFrames.start(IFramesWaitTime)
+	

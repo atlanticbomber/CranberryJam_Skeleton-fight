@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c55kltgk0j6d5" path="res://Scenes/skelebro.tscn" id="2_0pn8h"]
 [ext_resource type="PackedScene" uid="uid://cax1c2xwd5jge" path="res://Scenes/game_ui.tscn" id="3_0pn8h"]
 [ext_resource type="PackedScene" uid="uid://0dfn1g4ehexj" path="res://Scenes/enemy.tscn" id="3_tj4h3"]
+[ext_resource type="Resource" uid="uid://boc48dfmmofmd" path="res://Resources/Enemy/BasicEnemy.tres" id="5_upyjs"]
 
 [node name="Temp" type="Node2D" unique_id=1692386343]
 
@@ -33,6 +34,8 @@ motion_mode = 1
 [node name="Enemy" parent="." unique_id=104442209 instance=ExtResource("3_tj4h3")]
 position = Vector2(434, 503)
 motion_mode = 1
+EN = ExtResource("5_upyjs")
 
 [node name="Enemy2" parent="." unique_id=1993680582 instance=ExtResource("3_tj4h3")]
 position = Vector2(-124, 684)
+EN = ExtResource("5_upyjs")

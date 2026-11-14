@@ -24,6 +24,9 @@ autostart = true
 [node name="KnockTimer" type="Timer" parent="." unique_id=1653315625]
 one_shot = true
 
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1252069022]
+one_shot = true
+
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1015065795]
 self_modulate = Color(0.527469, 0.99999994, 0.2950488, 1)
 custom_minimum_size = Vector2(100, 12)

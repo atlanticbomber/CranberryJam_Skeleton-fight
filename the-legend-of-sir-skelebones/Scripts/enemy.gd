@@ -1,23 +1,30 @@
 extends CharacterBody2D
 
-var MaxEnemyHP: float = 100
-var EnemyHP: float = MaxEnemyHP
+@export var EN:EnemyResource = load("res://Resources/Enemy/BasicEnemy.tres")
 
-const SPEED = 360.0
+var MaxEnemyHP: float = EN.maxHP
+var EnemyHP: float = EN.maxHP
+
+var SPEED = EN.speed
 
 var playerSnapshot: Vector2 = Vector2(0,0)
 @onready var timerSnapshot: Timer = $SnapshotTimer
-var waitTimeSnapshot: float = 0.8
+var waitTimeSnapshot: float = EN.snapshotWaitTime
 
-var stopRange: float = 10.0
+var stopRange: float = EN.stopRange
 var stopSpeed: float = 0.06 #closer to 0 the smoother
 
 @onready var timerKnock: Timer = $KnockTimer
 var waitTimeKnock: float = 0.2
 
+@onready var timerAttack: Timer = $AttackCooldown
+var attackWaitTime: float = EN.attackWaitTime
+var attackDelay: float = EN.attackDelay
+
 func _ready() -> void:
 	$ProgressBar.max_value = MaxEnemyHP
 	$ProgressBar.value = EnemyHP
+	print(stopRange)
 
 func _physics_process(_delta: float) -> void:
 	#print(position.distance_to(Stats.PlayerLocation))
@@ -25,9 +32,10 @@ func _physics_process(_delta: float) -> void:
 	if timerKnock.is_stopped():
 		if position.distance_to(Stats.PlayerLocation) > stopRange:
 			velocity = (playerSnapshot - position).normalized() * SPEED
-		elif position.distance_to(Stats.PlayerLocation) < stopRange/1.3:
+		elif position.distance_to(Stats.PlayerLocation) < stopRange/2:
 			velocity = -(playerSnapshot - position).normalized() * SPEED
 		else:
+			attack()
 			velocity.x = move_toward(velocity.x, 0, SPEED * stopSpeed)
 			velocity.y = move_toward(velocity.y, 0, SPEED * stopSpeed)
 	move_and_slide() 
@@ -49,6 +57,18 @@ func EnemyDamage(value:float):
 		var tempKnockback: float = 1000
 		timerKnock.start(waitTimeKnock)
 		velocity = -(Stats.PlayerLocation - position).normalized() * tempKnockback
+
+func attack():
+	if timerAttack.is_stopped():
+		timerAttack.start(attackDelay)
+		await timerAttack.timeout
+		
+		var newBullet = load(EN.projectileFile).instantiate()
+		newBullet.position = position
+		newBullet.direction = (Stats.PlayerLocation - position).normalized()
+		get_parent().add_child(newBullet)
+		
+		timerAttack.start(attackWaitTime)
 
 #func _unhandled_key_input(_event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("ui_accept"):

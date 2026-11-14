@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_qu763"]
+[ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="2_fn4k1"]
 [ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4euk"]
@@ -14,6 +15,7 @@ height = 400.0
 
 [node name="Skelebro" type="CharacterBody2D" unique_id=1342470513]
 script = ExtResource("1_hodaq")
+currentWeapon = ExtResource("2_fn4k1")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=537610508]
 texture = ExtResource("1_qu763")
@@ -28,6 +30,9 @@ position_smoothing_enabled = true
 one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="." unique_id=284254133]
+one_shot = true
+
+[node name="ICooldown" type="Timer" parent="." unique_id=165803018]
 one_shot = true
 
 [node name="WeaponRange" type="Area2D" parent="." unique_id=187323184]
