@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c55kltgk0j6d5"]
+
+[ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_qu763"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4euk"]
+radius = 73.0
+height = 146.0
+
+[node name="Skelebro" type="CharacterBody2D" unique_id=1342470513]
+script = ExtResource("1_hodaq")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=537610508]
+texture = ExtResource("1_qu763")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810147069]
+shape = SubResource("CapsuleShape2D_l4euk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=865916813]
+position_smoothing_enabled = true
