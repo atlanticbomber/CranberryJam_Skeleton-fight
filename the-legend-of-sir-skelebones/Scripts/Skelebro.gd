@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 350.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var Hdirection := Input.get_axis("left", "right")
 	var Vdirection := Input.get_axis("up", "down")
 	if Hdirection or Vdirection:
