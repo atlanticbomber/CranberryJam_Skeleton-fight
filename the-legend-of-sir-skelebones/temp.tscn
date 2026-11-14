@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://coy3ka5t64yf5"]
+
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_ufh25"]
+[ext_resource type="PackedScene" uid="uid://c55kltgk0j6d5" path="res://skelebro.tscn" id="2_k81e3"]
+
+[node name="Temp" type="Node2D" unique_id=1692386343]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=11143213]
+position = Vector2(642, 212)
+texture = ExtResource("1_ufh25")
+
+[node name="Skelebro" parent="." unique_id=1998396607 instance=ExtResource("2_k81e3")]
+position = Vector2(77, 117)
