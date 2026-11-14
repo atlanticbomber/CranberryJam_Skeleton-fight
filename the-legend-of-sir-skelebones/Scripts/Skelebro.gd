@@ -13,3 +13,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func _unhandled_key_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		Stats.PlayerHP -= 1
+		Stats.Demeter -= 1

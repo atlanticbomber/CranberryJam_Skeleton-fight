@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cax1c2xwd5jge"]
+
+[ext_resource type="Texture2D" uid="uid://dsx7skilbkojs" path="res://Sprites/26getty.600.webp" id="1_gek4i"]
+[ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
+[ext_resource type="Texture2D" uid="uid://b4rnt26mmj1ck" path="res://Sprites/Demeter.png" id="2_bw2rt"]
+
+[node name="GameUI" type="Control" unique_id=2109985960]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xjnnq")
+
+[node name="Slots" type="HBoxContainer" parent="." unique_id=1450178203]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Health" type="TextureProgressBar" parent="." unique_id=1900385450]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+offset_right = 600.0
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("1_gek4i")
+
+[node name="Demeter" type="TextureProgressBar" parent="." unique_id=936041329]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -630.0
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("2_bw2rt")
