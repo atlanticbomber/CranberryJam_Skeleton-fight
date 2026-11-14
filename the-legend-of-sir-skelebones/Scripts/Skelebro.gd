@@ -17,8 +17,8 @@ var IFramesWaitTime: float = 1.0
 @onready var weaponTimer: Timer = $WeaponCooldown
 
 func _ready() -> void:
-	weaponShape.shape = currentWeapon.shape
-	weaponShape.position.x = (currentWeapon.shape.height/2) - currentWeapon.towardsCenter
+	weaponChange()
+	Stats.connect("weaponChange",weaponChange)
 
 func _physics_process(_delta: float) -> void:
 	#Rolling stuff
@@ -54,9 +54,9 @@ func _input(_event: InputEvent) -> void:
 		await weaponTimer.timeout
 		for body in weaponRange.get_overlapping_bodies():
 			if body.has_method("EnemyDamage"):
-				var tempDmg = 10.0
 				$Attack.play()
-				body.EnemyDamage(tempDmg)
+				print(Stats.currentActive)
+				body.EnemyDamage(currentWeapon.damage)
 		weaponTimer.start(currentWeapon.cooldown)
 
 func takeDamage(damage:int):
@@ -64,3 +64,9 @@ func takeDamage(damage:int):
 		Stats.PlayerHP -= damage
 		IFrames.start(IFramesWaitTime)
 	
+func weaponChange():
+	#print(Stats.currentActive)
+	await get_tree().create_timer(0.1).timeout
+	currentWeapon = Stats.currentActive
+	weaponShape.shape = currentWeapon.shape
+	weaponShape.position.x = (currentWeapon.shape.height/2) - currentWeapon.towardsCenter
