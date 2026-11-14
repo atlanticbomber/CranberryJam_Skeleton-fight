@@ -3,16 +3,33 @@
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_30vue"]
 [ext_resource type="PackedScene" uid="uid://c55kltgk0j6d5" path="res://Scenes/skelebro.tscn" id="2_0pn8h"]
 [ext_resource type="PackedScene" uid="uid://cax1c2xwd5jge" path="res://Scenes/game_ui.tscn" id="3_0pn8h"]
+[ext_resource type="PackedScene" uid="uid://0dfn1g4ehexj" path="res://Scenes/enemy.tscn" id="3_tj4h3"]
 
 [node name="Temp" type="Node2D" unique_id=1692386343]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=11143213]
-position = Vector2(642, 212)
+[node name="Icon" type="Sprite2D" parent="." unique_id=1389175663]
+position = Vector2(85, 559.5)
+scale = Vector2(0.5625, 0.6953125)
+texture = ExtResource("1_30vue")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=690324347]
+position = Vector2(796.5, 362)
+scale = Vector2(0.7578125, 0.640625)
+texture = ExtResource("1_30vue")
+
+[node name="Icon3" type="Sprite2D" parent="." unique_id=1975262852]
+position = Vector2(496, 79)
+scale = Vector2(0.78125, 0.671875)
 texture = ExtResource("1_30vue")
 
 [node name="Skelebro" parent="." unique_id=1998396607 instance=ExtResource("2_0pn8h")]
 position = Vector2(77, 117)
+motion_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=358148407]
 
 [node name="GameUI" parent="CanvasLayer" unique_id=2109985960 instance=ExtResource("3_0pn8h")]
+
+[node name="Enemy" parent="." unique_id=104442209 instance=ExtResource("3_tj4h3")]
+position = Vector2(434, 503)
+motion_mode = 1

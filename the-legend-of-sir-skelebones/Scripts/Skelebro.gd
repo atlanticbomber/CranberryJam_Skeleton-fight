@@ -11,7 +11,8 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+	
+	Stats.PlayerLocation = position
 	move_and_slide()
 
 func _unhandled_key_input(_event: InputEvent) -> void:

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://0dfn1g4ehexj"]
+
+[ext_resource type="Script" uid="uid://cmeqtbxpcc74q" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_hghv2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1f0kj"]
+radius = 61.0
+height = 122.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=104442209]
+script = ExtResource("1_1f0kj")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=876297299]
+self_modulate = Color(0.9176778, 0.28919515, 0.04808618, 1)
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=205097512]
+shape = SubResource("CapsuleShape2D_1f0kj")
+
+[node name="SnapshotTimer" type="Timer" parent="." unique_id=1650344526]
+wait_time = 2.0
+autostart = true
+
+[node name="KnockTimer" type="Timer" parent="." unique_id=1653315625]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1015065795]
+self_modulate = Color(0.527469, 0.99999994, 0.2950488, 1)
+custom_minimum_size = Vector2(100, 12)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -90.0
+offset_right = 50.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="SnapshotTimer" to="." method="_on_snapshot_timer_timeout"]
