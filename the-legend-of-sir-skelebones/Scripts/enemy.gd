@@ -3,7 +3,7 @@ extends CharacterBody2D
 var MaxEnemyHP: float = 100
 var EnemyHP: float = MaxEnemyHP
 
-const SPEED = 352.0
+const SPEED = 360.0
 
 var playerSnapshot: Vector2 = Vector2(0,0)
 @onready var timerSnapshot: Timer = $SnapshotTimer

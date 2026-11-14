@@ -5,7 +5,9 @@ extends Control
 
 func _ready() -> void:
 	#connect("PlayerHPChange",HealthBarChange)
-	pass
+	HealthBar.max_value = Stats.MaxPlayerHP
+	HealthBar.value = Stats.PlayerHP
+
 func _process(_delta: float) -> void:
 	Demeter.value = Stats.Demeter
 	HealthBar.value = Stats.PlayerHP

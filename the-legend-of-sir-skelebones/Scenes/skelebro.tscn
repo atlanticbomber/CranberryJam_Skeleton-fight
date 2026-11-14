@@ -18,3 +18,6 @@ shape = SubResource("CapsuleShape2D_l4euk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=865916813]
 position_smoothing_enabled = true
+
+[node name="RollCooldown" type="Timer" parent="." unique_id=991862256]
+one_shot = true
