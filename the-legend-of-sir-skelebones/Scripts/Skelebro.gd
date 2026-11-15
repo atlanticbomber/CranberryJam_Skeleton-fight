@@ -82,7 +82,7 @@ func takeDamage(damage:int):
 	if IFrames.is_stopped():
 		Stats.PlayerHP -= damage
 		IFrames.start(IFramesWaitTime)
-	if Stats.PlayerHP == 0:
+	if Stats.PlayerHP <= 0:
 		game_over.emit()
 	
 func weaponChange():

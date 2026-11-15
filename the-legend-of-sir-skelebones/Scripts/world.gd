@@ -31,10 +31,13 @@ func decay_map():
 	timer.wait_time = 1.5 + 0.95 * (timer.wait_time - 1.5)
 var enemy_template = preload("res://Scenes/enemy.tscn")
 var enemy_count = 0
+
 func spawn_enemies(distance):
-	var enemies_per_sec = 2 + 0.2 * distance
-	var random = randi_range(0,60)
-	if random < enemies_per_sec and enemy_count<51:
+	var enemy_capac = 20 + 3 * distance / 100
+	var enemies_per_sec = 2 + 28 * (1 - 2 ** ((distance/400) ** 1.5))
+	var random = randi_range(0,100)
+	var rand_2 = randi_range(0,enemy_capac * 1.5)
+	if random < enemies_per_sec and enemy_count<(enemy_capac) and enemy_count < rand_2:
 		var enemy = enemy_template.instantiate()
 		enemy.EN = choose_random_enemy(distance)
 		var rand_x = randi_range(-900, 900)
@@ -48,4 +51,7 @@ func choose_random_enemy(distance)-> EnemyResource:
 	return preload("res://Resources/Enemy/BasicEnemy.tres")
 	
 func game_end():
+	call_deferred("load_end_screen")
+
+func load_end_screen():
 	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")

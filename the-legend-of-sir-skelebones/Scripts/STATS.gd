@@ -35,3 +35,9 @@ var skills:Dictionary = {
 var currentActive: WeaponResource = load("res://Resources/Weapon/fist.tres")
 signal weaponChange
 #signal PlayerHPChange(value:float)
+
+func init_player_stats():
+	MaxPlayerHP = 100.0
+	PlayerHP = MaxPlayerHP
+	PlayerSpeed = 330
+	PlayerAttack = 1.0
