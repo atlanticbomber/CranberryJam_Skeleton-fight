@@ -36,7 +36,9 @@ func _physics_process(_delta: float) -> void:
 	if Hdirection or Vdirection:
 		velocity.x = Hdirection * SPEED * rollBonus
 		velocity.y = Vdirection * SPEED * rollBonus
+		$AnimationPlayer.play("Walk")
 	else:
+		$AnimationPlayer.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
@@ -47,6 +49,9 @@ func _physics_process(_delta: float) -> void:
 	Stats.PlayerLocation = position
 	move_and_slide()
 
+func _process(_delta: float) -> void:
+	$Sprite/Skull/BigEye.position = Vector2(3.5,-0.5) + Vector2(3,1.5)*(get_global_mouse_position() - position).normalized()
+	$Sprite/Skull/SmallEye.position = Vector2(22,-6.0) + Vector2(1.5,1.5)*(get_global_mouse_position() - position).normalized()
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and weaponTimer.is_stopped():
 		print("frame",get_tree().get_frame())
@@ -70,3 +75,4 @@ func weaponChange():
 	currentWeapon = Stats.currentActive
 	weaponShape.shape = currentWeapon.shape
 	weaponShape.position.x = (currentWeapon.shape.height/2) - currentWeapon.towardsCenter
+	
