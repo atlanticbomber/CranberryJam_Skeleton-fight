@@ -7,14 +7,22 @@ extends Control
 var currentSlot: int = 0 
 
 func _ready() -> void:
-	#connect("PlayerHPChange",HealthBarChange)
-	HealthBar.max_value = Stats.MaxPlayerHP
-	HealthBar.value = Stats.PlayerHP
 	Stats.currentActive = slots[0]
 
 func _process(_delta: float) -> void:
 	Demeter.value = Stats.Demeter
+	Demeter.max_value = Stats.MaxDemeter
+	if Stats.Demeter >= Stats.MaxDemeter:
+		Stats.Vitamins += 1
+		Stats.Vitaminscollected +=1
+		Stats.Demeter = 0 
+		Stats.MaxDemeter = floori(5 * (1.2**Stats.Vitaminscollected))
+	
 	HealthBar.value = Stats.PlayerHP
+	HealthBar.max_value = Stats.MaxPlayerHP
+	
+	$Health/Skull/Label.text = str(Stats.Vitamins)
+	
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Slot1") or $Slots/Slot1.button_pressed:
@@ -35,15 +43,11 @@ func _input(_event: InputEvent) -> void:
 			Stats.currentActive = slots[2]
 			Stats.emit_signal("weaponChange")
 			#print("slot2",slots[1],Stats.currentActive)
-	elif Input.is_action_just_pressed("skillaton") or $Health/Skull.button_pressed:
+	elif Input.is_action_just_pressed("skillaton"):
 		if $CanvasLayer.get_child_count() == 0:
 			var newSkillaton = load("res://Scenes/skillaton.tscn").instantiate()
 			$CanvasLayer.add_child(newSkillaton)
 			get_tree().paused = true
-		else:
-			for child in $CanvasLayer.get_children():
-				child.queue_free()
-			get_tree().paused = false
 		
 	for child in $Slots.get_children():
 		child.self_modulate = Color(1.0, 1.0, 1.0, 0.784)

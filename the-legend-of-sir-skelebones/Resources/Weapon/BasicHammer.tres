@@ -11,5 +11,6 @@ script = ExtResource("1_2f5tw")
 shape = SubResource("CapsuleShape2D_g2lqx")
 towardsCenter = -5.0
 delay = 1.0
-damage = 20.0
+cooldown = 0.8
+damage = 50.0
 metadata/_custom_type_script = "uid://dk5vp3u7drp0r"

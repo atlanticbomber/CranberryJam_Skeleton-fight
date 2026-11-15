@@ -51,6 +51,7 @@ func EnemyDamage(value:float):
 	if timerKnock.is_stopped():
 		if EnemyHP - value <= 0:
 			dying.emit()
+			Stats.Demeter+=EN.VitaminDrop
 			self.queue_free()
 		
 		EnemyHP -= value

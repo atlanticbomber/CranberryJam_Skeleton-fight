@@ -9,6 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/skelebro/Hand.png" id="6_8oytp"]
 [ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
 
+[sub_resource type="Gradient" id="Gradient_pqsy5"]
+offsets = PackedFloat32Array(0, 0.764977, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w0keb"]
+gradient = SubResource("Gradient_pqsy5")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Animation" id="Animation_1caf8"]
 resource_name = "Idle"
 length = 0.8
@@ -341,10 +352,25 @@ texture = ExtResource("5_tta51")
 position = Vector2(3.5, -0.5)
 texture = ExtResource("6_tta51")
 
+[node name="PointLight2D" type="PointLight2D" parent="Sprite/Skull/BigEye" unique_id=294458244]
+position = Vector2(-9, -37)
+energy = 0.8
+texture = SubResource("GradientTexture2D_w0keb")
+
 [node name="SmallEye" type="Sprite2D" parent="Sprite/Skull" unique_id=1329254508]
 position = Vector2(22, -6)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("6_tta51")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite/Skull/SmallEye" unique_id=2112173208]
+position = Vector2(-9, -37)
+energy = 0.5
+texture = SubResource("GradientTexture2D_w0keb")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite" unique_id=148341410]
+position = Vector2(-2, 9)
+energy = 0.4
+texture = SubResource("GradientTexture2D_w0keb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1592051699]
 libraries/ = SubResource("AnimationLibrary_1caf8")

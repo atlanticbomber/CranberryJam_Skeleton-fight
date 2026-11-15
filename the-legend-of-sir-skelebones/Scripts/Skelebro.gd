@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var currentWeapon:WeaponResource
 
-const SPEED = 350.0
+const SPEED = 530.0
 
 var rollBonus: float = 1
 var rollConst: float = 3.0
@@ -35,13 +35,13 @@ func _physics_process(_delta: float) -> void:
 	var Hdirection := Input.get_axis("left", "right")
 	var Vdirection := Input.get_axis("up", "down")
 	if Hdirection or Vdirection:
-		velocity.x = Hdirection * SPEED * rollBonus
-		velocity.y = Vdirection * SPEED * rollBonus
+		velocity.x = Hdirection * Stats.PlayerSpeed * rollBonus
+		velocity.y = Vdirection * Stats.PlayerSpeed * rollBonus
 		$AnimationPlayer.play("Walk")
 	else:
 		$AnimationPlayer.play("Idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, Stats.PlayerSpeed)
+		velocity.y = move_toward(velocity.y, 0, Stats.PlayerSpeed)
 	
 	
 	#Weapon sense
@@ -70,7 +70,7 @@ func _input(_event: InputEvent) -> void:
 			if body.has_method("EnemyDamage"):
 				$Attack.play()
 				print(Stats.currentActive)
-				body.EnemyDamage(currentWeapon.damage)
+				body.EnemyDamage(currentWeapon.damage*Stats.PlayerAttack)
 		weaponTimer.start(currentWeapon.cooldown)
 
 func takeDamage(damage:int):

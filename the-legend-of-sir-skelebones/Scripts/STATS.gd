@@ -2,15 +2,21 @@ extends Node
 
 var MaxPlayerHP: float = 100.0
 var PlayerHP: float = MaxPlayerHP
+var PlayerSpeed: float = 330
+var PlayerAttack: float = 1.0
+var PlayerLevels = [0,0,0]
 
-var MaxDemeter: float = 100.0
+var MaxDemeter: float = 5
 var Demeter: float = 0.0
 var Vitamins: int = 0 
+var Vitaminscollected:int = 0 
 
 var PlayerLocation: Vector2 = Vector2(0,0)
-var Speed: float = 360
 
-
+func levelUpdate():
+	MaxPlayerHP = 100.0 + 50.0*PlayerLevels[0]
+	PlayerSpeed = 330.0 + 20.0*PlayerLevels[1]
+	PlayerAttack = 1.0 + 0.15*PlayerLevels[2]
 
 var skills:Dictionary = {
 	"0":{"?":true,"cost":0}, #origin
