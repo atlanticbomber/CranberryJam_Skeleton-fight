@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://clu1e2ljyeos1"]
+
+[ext_resource type="Texture2D" uid="uid://hp7fb7im73db" path="res://Sprites/resize-1794687866381913903134267377000160588.jpg" id="1_0xhu1"]
+[ext_resource type="Script" uid="uid://b28vip2kbhup3" path="res://Scripts/collapsed_strip.gd" id="1_evquh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nrax6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8h3l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjcy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0xhu1")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"crumble",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrax6"]
+size = Vector2(1890, 100)
+
+[node name="CollapsingStrip" type="Node2D" unique_id=2080553464]
+script = ExtResource("1_evquh")
+
+[node name="Rightwall" type="StaticBody2D" parent="." unique_id=1108683034]
+position = Vector2(945, 0)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rightwall" unique_id=1936610992]
+shape = SubResource("WorldBoundaryShape2D_nrax6")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=742462367]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1612980862]
+position = Vector2(-945, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_t8h3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1712132906]
+sprite_frames = SubResource("SpriteFrames_vjcy3")
+animation = &"crumble"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=771255300]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=541347147]
+shape = SubResource("RectangleShape2D_nrax6")
+
+[connection signal="ready" from="." to="AnimatedSprite2D" method="play" binds= [&"crumble"]]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="done_collapsing"]
+[connection signal="body_entered" from="Area2D" to="." method="handle_player_entrance"]
