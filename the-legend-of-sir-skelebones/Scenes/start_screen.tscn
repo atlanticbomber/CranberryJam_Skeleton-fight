@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2gjkct1uiwl1"]
+
+[ext_resource type="Script" uid="uid://dcr5ounqmli8l" path="res://Scripts/start_screen.gd" id="1_i8r30"]
+
+[node name="Start Screen" type="Node2D" unique_id=82350543]
+script = ExtResource("1_i8r30")
+
+[node name="Button" type="Button" parent="." unique_id=1662726578]
+offset_left = -367.0
+offset_top = -292.0
+offset_right = 373.0
+offset_bottom = 293.0
+text = "Start Game"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=974428710]
+
+[connection signal="pressed" from="Button" to="." method="begin_run"]
