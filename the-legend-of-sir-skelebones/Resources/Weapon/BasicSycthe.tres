@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://cyj0hbyjq2ncn"]
+
+[ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="1_dvcgy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4rtl"]
+radius = 250.0
+height = 500.0
+
+[resource]
+script = ExtResource("1_dvcgy")
+name = "Skelescythe"
+shape = SubResource("CapsuleShape2D_d4rtl")
+towardsCenter = 200.0
+delay = 0.4
+cooldown = 0.4
+damage = 20.0
+metadata/_custom_type_script = "uid://dk5vp3u7drp0r"

@@ -38,3 +38,5 @@ show_behind_parent = true
 z_as_relative = false
 position = Vector2(50, 50)
 points = PackedVector2Array(0, 0)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
