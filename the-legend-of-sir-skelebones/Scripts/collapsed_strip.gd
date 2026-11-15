@@ -7,6 +7,8 @@ extends Node2D
 func handle_player_entrance(body: Node2D):
 	if body is Player and collapsed:
 		call_deferred("load_menu")
+	elif body is Enemy and collapsed:
+		body.EnemyDamage(body.MaxEnemyHP)
 
 func load_menu():
 	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
