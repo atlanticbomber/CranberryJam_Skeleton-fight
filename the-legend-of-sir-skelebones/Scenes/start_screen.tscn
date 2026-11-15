@@ -1,16 +1,63 @@
 [gd_scene format=3 uid="uid://c2gjkct1uiwl1"]
 
 [ext_resource type="Script" uid="uid://dcr5ounqmli8l" path="res://Scripts/start_screen.gd" id="1_i8r30"]
+[ext_resource type="Texture2D" uid="uid://d0u2im3u5y11e" path="res://Sprites/menu/Start.png" id="2_60ddj"]
+[ext_resource type="Texture2D" uid="uid://2vhjmy55ht7v" path="res://Sprites/menu/StartButton.png" id="2_ainjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4euk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0keb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f51c0"]
+bg_color = Color(1, 1, 1, 0.05882353)
 
 [node name="Start Screen" type="Node2D" unique_id=82350543]
 script = ExtResource("1_i8r30")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=528766649]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -630.0
+offset_top = -528.0
+offset_right = 630.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_60ddj")
+
 [node name="Button" type="Button" parent="." unique_id=1662726578]
-offset_left = -367.0
-offset_top = -292.0
-offset_right = 373.0
-offset_bottom = 293.0
-text = "Start Game"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 25.0
+offset_right = 505.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4euk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0keb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f51c0")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1969329919]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -630.0
+offset_top = -528.0
+offset_right = 630.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ainjc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=974428710]
 

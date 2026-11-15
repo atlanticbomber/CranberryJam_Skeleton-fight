@@ -62,15 +62,19 @@ func EnemyDamage(value:float):
 
 func attack():
 	if timerAttack.is_stopped():
-		timerAttack.start(attackDelay)
+		timerAttack.start(EN.attackDelay)
 		await timerAttack.timeout
 		
 		var newBullet = load(EN.projectileFile).instantiate()
 		newBullet.position = position
 		newBullet.direction = (Stats.PlayerLocation - position).normalized()
+		newBullet.speed = EN.projSpeed
+		newBullet.distance = EN.projDistance
+		newBullet.damage = EN.projDamage
+		newBullet.melee = EN.melee
 		get_parent().add_child(newBullet)
 		
-		timerAttack.start(attackWaitTime)
+		timerAttack.start(EN.attackWaitTime)
 
 #func _unhandled_key_input(_event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("ui_accept"):

@@ -4,11 +4,14 @@ class_name EnemyProjectile
 @export var speed: float = 1000.0
 @export var distance: float = 100.0
 @export var damage:float = 10.0
+@export var melee:bool = false
 
 var direction: Vector2
 var startPosition:Vector2
 func _ready() -> void:
 	startPosition = position
+	if melee:
+		visible = false
 	
 func _process(delta: float) -> void:
 	position += Vector2(speed,speed) * direction * delta
