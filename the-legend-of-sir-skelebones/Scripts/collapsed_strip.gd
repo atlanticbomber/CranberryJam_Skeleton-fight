@@ -16,7 +16,8 @@ func handle_player_entrance(body: Node2D):
 		body.EnemyDamage(body.MaxEnemyHP)
 
 func load_menu():
-	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
+	get_parent().game_over.emit()
 
 func done_collapsing() -> void:
 	collapsed = true

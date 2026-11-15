@@ -15,6 +15,8 @@ var IFramesWaitTime: float = 1.0
 @onready var weaponShape: CollisionShape2D = $WeaponRange/CollisionShape2D
 @onready var weaponTimer: Timer = $WeaponCooldown
 
+signal game_over
+
 func _ready() -> void:
 	weaponChange()
 	Stats.connect("weaponChange",weaponChange)
@@ -80,6 +82,8 @@ func takeDamage(damage:int):
 	if IFrames.is_stopped():
 		Stats.PlayerHP -= damage
 		IFrames.start(IFramesWaitTime)
+	if Stats.PlayerHP == 0:
+		game_over.emit()
 	
 func weaponChange():
 	#print(Stats.currentActive)

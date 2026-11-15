@@ -24,7 +24,8 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	Music.changeMusic("Battle")
-		
+	map.game_over.connect(game_end)
+	character.game_over.connect(game_end)
 func decay_map():
 	map.decay_next()
 	timer.wait_time = 1.5 + 0.95 * (timer.wait_time - 1.5)
@@ -45,3 +46,6 @@ func spawn_enemies(distance):
 		
 func choose_random_enemy(distance)-> EnemyResource:
 	return preload("res://Resources/Enemy/BasicEnemy.tres")
+	
+func game_end():
+	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
