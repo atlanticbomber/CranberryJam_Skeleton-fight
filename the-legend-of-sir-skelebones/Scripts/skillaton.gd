@@ -27,6 +27,7 @@ func _input(_event: InputEvent) -> void:
 	"	HP: "+str(Stats.MaxPlayerHP)+"
 	Speed: "+str(Stats.PlayerSpeed))+"
 	Atk: "+str(Stats.PlayerAttack))
+		Music.changeMusic("Battle")
 		queue_free()
 
 func _on_nose_button_pressed() -> void:

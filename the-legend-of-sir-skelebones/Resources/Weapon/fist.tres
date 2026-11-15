@@ -9,6 +9,7 @@ height = 180.0
 
 [resource]
 script = ExtResource("1_jmvv4")
+name = "Fist"
 shape = SubResource("CapsuleShape2D_nt1hv")
 delay = 0.1
 cooldown = 0.2

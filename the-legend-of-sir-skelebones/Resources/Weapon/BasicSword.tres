@@ -9,6 +9,7 @@ height = 360.0
 
 [resource]
 script = ExtResource("1_g2lqx")
+name = "Bone Blade"
 shape = SubResource("CapsuleShape2D_g2lqx")
 towardsCenter = 100.0
 cooldown = 0.4
