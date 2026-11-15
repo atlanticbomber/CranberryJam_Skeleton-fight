@@ -36,3 +36,9 @@ var currentActive: WeaponResource = load("res://Resources/Weapon/fist.tres")
 var weaponsAquired: int = 0 
 signal weaponChange
 #signal PlayerHPChange(value:float)
+
+func init_player_stats():
+	MaxPlayerHP = 100.0
+	PlayerHP = MaxPlayerHP
+	PlayerSpeed = 330
+	PlayerAttack = 1.0
