@@ -1,6 +1,6 @@
 extends Node
 
-var MaxPlayerHP: float = 100.0
+var MaxPlayerHP: float = 200.0
 var PlayerHP: float = MaxPlayerHP
 var PlayerSpeed: float = 330
 var PlayerAttack: float = 1.0
@@ -18,7 +18,7 @@ var currentScene:String = "Menu"
 var PlayerLocation: Vector2 = Vector2(0,0)
 
 func levelUpdate():
-	MaxPlayerHP = 100.0 + 50.0*PlayerLevels[0]
+	MaxPlayerHP = 200.0 + 50.0*PlayerLevels[0]
 	PlayerSpeed = 330.0 + 20.0*PlayerLevels[1]
 	PlayerAttack = 1.0 + 0.15*PlayerLevels[2]
 
