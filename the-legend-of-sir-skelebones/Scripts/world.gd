@@ -4,6 +4,7 @@ var map
 var timer
 var spawn_loops = 0
 var farthest_tile = 0
+
 func _init():
 	var tile_map = preload("res://Scenes/tile_map_layer.tscn")
 	map = tile_map.instantiate()
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 	if -farthest_tile > map.last_tiled_id-7:
 		map.add_tile()
 	spawn_enemies(-farthest_tile)
+
+func _ready() -> void:
+	Music.changeMusic("Battle")
 		
 func decay_map():
 	map.decay_next()

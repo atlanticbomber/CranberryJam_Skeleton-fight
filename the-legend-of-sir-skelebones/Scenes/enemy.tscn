@@ -7,6 +7,17 @@
 radius = 61.0
 height = 122.0
 
+[sub_resource type="Gradient" id="Gradient_pqsy5"]
+offsets = PackedFloat32Array(0, 0.764977, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1f0kj"]
+gradient = SubResource("Gradient_pqsy5")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=104442209]
 script = ExtResource("1_1f0kj")
 
@@ -43,5 +54,10 @@ grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
 show_percentage = false
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=898514714]
+color = Color(0.4801783, 0.8941354, 0, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_1f0kj")
 
 [connection signal="timeout" from="SnapshotTimer" to="." method="_on_snapshot_timer_timeout"]

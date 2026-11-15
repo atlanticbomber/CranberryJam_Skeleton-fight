@@ -8,6 +8,8 @@ radius = 14.0
 
 [node name="EnemyProjectile" type="Area2D" unique_id=1302272890]
 script = ExtResource("1_ibebl")
+speed = 300.0
+distance = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554850577]
 rotation = 1.5707964

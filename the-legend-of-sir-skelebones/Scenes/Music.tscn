@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c7ogpd1u0eu3d"]
+
+[ext_resource type="Script" uid="uid://cey1o0d5ejtob" path="res://music.gd" id="1_fw6bl"]
+[ext_resource type="AudioStream" uid="uid://dot3u63ictcs1" path="res://Sounds/Music/Skeletunes for Escaping the Invitable - 11:15:26, 10.39 AM.mp3" id="2_tw4r6"]
+
+[node name="Music" type="Node" unique_id=1451197283]
+process_mode = 3
+script = ExtResource("1_fw6bl")
+
+[node name="Playing" type="AudioStreamPlayer" parent="." unique_id=1361029848]
+stream = ExtResource("2_tw4r6")
+
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=489617856]
