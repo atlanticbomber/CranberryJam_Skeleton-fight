@@ -2,10 +2,15 @@ extends Node
 
 var MaxPlayerHP: float = 100.0
 var PlayerHP: float = MaxPlayerHP
+
 var MaxDemeter: float = 100.0
-var Demeter: float = 1.0
+var Demeter: float = 0.0
+var Vitamins: int = 0 
+
 var PlayerLocation: Vector2 = Vector2(0,0)
 var Speed: float = 360
+
+
 
 var skills:Dictionary = {
 	"0":{"?":true,"cost":0}, #origin

@@ -2,8 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cmq6h0d2r42ur" path="res://Sprites/icon2.svg" id="1_6jvxk"]
 [ext_resource type="Script" uid="uid://b2n8yjot7r11m" path="res://Scripts/skillaton.gd" id="1_ng6cd"]
+[ext_resource type="Texture2D" uid="uid://d021qfbe6wmuw" path="res://Sprites/Skillaton/SkillSkull.png" id="2_4klpl"]
+[ext_resource type="Texture2D" uid="uid://brnpcg70wspfu" path="res://Sprites/Skillaton/SkillRib.png" id="2_k8351"]
+[ext_resource type="Texture2D" uid="uid://bmqcf0auf718k" path="res://Sprites/Skillaton/SkillBack.png" id="2_tf0p3"]
 [ext_resource type="PackedScene" uid="uid://c1wfelskkuqhb" path="res://Scenes/SkillNode.tscn" id="3_c6shf"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="3_t3xd6"]
+[ext_resource type="Texture2D" uid="uid://qs64nphxb3h8" path="res://Sprites/Skillaton/SkillNose.png" id="7_ry1md"]
+[ext_resource type="Texture2D" uid="uid://dsd87xsxehb71" path="res://Sprites/Skillaton/SkillHand.png" id="8_cuo60"]
 
 [sub_resource type="Animation" id="Animation_6jvxk"]
 length = 0.001
@@ -67,9 +72,22 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ng6cd"]
 resource_name = "Rise"
+length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +95,10 @@ tracks/0/path = NodePath("Head:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(430, 1070), Vector2(430, 100)]
+"values": [Vector2(0, 1100), Vector2(0, 1000), Vector2(0, -10), Vector2(0, 30)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -89,10 +107,10 @@ tracks/1/path = NodePath("Ribs:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.46666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.26666668, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(330, 1100), Vector2(330, 556)]
+"values": [Vector2(0, 800), Vector2(0, 0), Vector2(0, 30)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,10 +119,10 @@ tracks/2/path = NodePath("Hand:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 1100), Vector2(0, 906)]
+"values": [Vector2(100, 200), Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -113,10 +131,10 @@ tracks/3/path = NodePath("Hand2:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(960, 1100), Vector2(960, 906)]
+"values": [Vector2(-100, 200), Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -125,10 +143,22 @@ tracks/4/path = NodePath("Ribs/SkillTree:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6shf"]
@@ -157,101 +187,35 @@ script = ExtResource("1_ng6cd")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1988024514]
 libraries/ = SubResource("AnimationLibrary_c6shf")
 
-[node name="Head" type="TextureRect" parent="." unique_id=2100067558]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 500.00082
-grow_horizontal = 2
-texture = ExtResource("1_6jvxk")
-
-[node name="EyeCon" type="TextureRect" parent="Head" unique_id=687882380]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -140.0
-offset_right = 175.0
-offset_bottom = 35.0
-grow_vertical = 2
-texture = ExtResource("1_6jvxk")
-
-[node name="Label" type="Label" parent="Head/EyeCon" unique_id=1155333483]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -87.5
-offset_right = 87.5
-offset_bottom = 87.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Stat"
-label_settings = SubResource("LabelSettings_w0keb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="EyeStat" type="Label" parent="Head" unique_id=674437183]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -140.0
-offset_bottom = 35.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "#"
-label_settings = SubResource("LabelSettings_l4euk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NoseButton" type="Button" parent="Head" unique_id=862972852]
-custom_minimum_size = Vector2(75, 75)
-custom_maximum_size = Vector2(75, 75)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = 10.0
-offset_right = 37.5
-offset_bottom = 85.0
-grow_horizontal = 2
-grow_vertical = 2
-icon = ExtResource("1_6jvxk")
-expand_icon = true
-
-[node name="Ribs" type="TextureRect" parent="." unique_id=968620222]
-custom_minimum_size = Vector2(600, 500)
+[node name="Back" type="TextureRect" parent="." unique_id=2105749834]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -500.0
-offset_right = 300.0
-offset_bottom = 0.0021972656
+offset_left = -630.0
+offset_top = -1056.0
+offset_right = 630.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+texture = ExtResource("2_tf0p3")
+
+[node name="Ribs" type="TextureRect" parent="." unique_id=968620222]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 28.0
+offset_right = 960.0
+offset_bottom = 1084.0005
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k8351")
 
 [node name="SkillTree" type="Control" parent="Ribs" unique_id=1344466886]
 layout_mode = 1
@@ -325,6 +289,87 @@ offset_top = -33.0011
 offset_right = -318.0
 offset_bottom = 66.9989
 
+[node name="Head" type="TextureRect" parent="." unique_id=2100067558]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -428.0
+offset_right = 1060.0
+offset_bottom = 628.0017
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4klpl")
+
+[node name="EyeCon" type="TextureRect" parent="Head" unique_id=687882380]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -341.00012
+offset_right = 180.0
+offset_bottom = -166.00012
+grow_vertical = 2
+texture = ExtResource("1_6jvxk")
+
+[node name="Label" type="Label" parent="Head/EyeCon" unique_id=1155333483]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -87.5
+offset_right = 87.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stat"
+label_settings = SubResource("LabelSettings_w0keb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EyeStat" type="Label" parent="Head" unique_id=674437183]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -140.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "#"
+label_settings = SubResource("LabelSettings_l4euk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoseButton" type="TextureButton" parent="Head" unique_id=1688560037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -630.0
+offset_top = -528.0
+offset_right = 630.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_ry1md")
+
 [node name="Hand" type="TextureRect" parent="." unique_id=266314377]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 1
@@ -332,9 +377,10 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_right = 300.0
+offset_right = 1260.0
+offset_bottom = 906.0005
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+texture = ExtResource("8_cuo60")
 
 [node name="Hand2" type="TextureRect" parent="." unique_id=910143168]
 custom_minimum_size = Vector2(300, 150)
@@ -346,7 +392,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = -150.0
-offset_bottom = 0.00024414063
+offset_right = 960.001
+offset_bottom = 906.00073
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+texture = ExtResource("8_cuo60")
+flip_h = true

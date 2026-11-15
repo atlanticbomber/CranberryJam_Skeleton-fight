@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var EN:EnemyResource = load("res://Resources/Enemy/BasicEnemy.tres")
@@ -20,7 +21,7 @@ var waitTimeKnock: float = 0.2
 @onready var timerAttack: Timer = $AttackCooldown
 var attackWaitTime: float = EN.attackWaitTime
 var attackDelay: float = EN.attackDelay
-
+signal dying
 func _ready() -> void:
 	$ProgressBar.max_value = MaxEnemyHP
 	$ProgressBar.value = EnemyHP
@@ -49,6 +50,7 @@ func EnemyDamage(value:float):
 	#checks if getting knocked, death check, health change, knock back
 	if timerKnock.is_stopped():
 		if EnemyHP - value <= 0:
+			dying.emit()
 			self.queue_free()
 		
 		EnemyHP -= value

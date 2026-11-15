@@ -4,6 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cax1c2xwd5jge" path="res://Scenes/game_ui.tscn" id="3_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://c55kltgk0j6d5" path="res://Scenes/skelebro.tscn" id="3_8j60k"]
 
+[sub_resource type="Environment" id="Environment_l4euk"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 0.9
+fog_enabled = true
+fog_light_energy = 4.66
+fog_density = 0.3202
+
 [node name="World" type="Node2D" unique_id=469891445]
 script = ExtResource("1_a02cp")
 
@@ -12,3 +20,6 @@ script = ExtResource("1_a02cp")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=452096123]
 
 [node name="GameUI" parent="CanvasLayer" unique_id=2109985960 instance=ExtResource("3_5a7ea")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1133447806]
+environment = SubResource("Environment_l4euk")
