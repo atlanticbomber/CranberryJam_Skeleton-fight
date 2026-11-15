@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cax1c2xwd5jge"]
+
+[ext_resource type="Texture2D" uid="uid://dsx7skilbkojs" path="res://Sprites/26getty.600.webp" id="1_gek4i"]
+[ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
+[ext_resource type="Texture2D" uid="uid://b4rnt26mmj1ck" path="res://Sprites/Demeter.png" id="2_bw2rt"]
+[ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="2_gjn1n"]
+[ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="3_1t2s1"]
+[ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="3_gjn1n"]
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="6_3t1kc"]
+
+[node name="GameUI" type="Control" unique_id=2109985960]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xjnnq")
+slots = Array[ExtResource("2_gjn1n")]([ExtResource("3_gjn1n"), ExtResource("3_1t2s1"), null, null, null, null])
+metadata/_edit_horizontal_guides_ = [1058.0, 943.0]
+
+[node name="Health" type="TextureProgressBar" parent="." unique_id=1900385450]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+offset_right = 600.0
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("1_gek4i")
+
+[node name="Skull" type="Button" parent="." unique_id=1319970530]
+custom_minimum_size = Vector2(75, 75)
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 620.0
+offset_top = -176.0
+offset_right = 670.0
+offset_bottom = -126.0
+grow_vertical = 0
+text = "
+"
+icon = ExtResource("6_3t1kc")
+expand_icon = true
+
+[node name="Slots" type="HBoxContainer" parent="." unique_id=1450178203]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Slot1" type="Button" parent="Slots" unique_id=465299921]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "1"
+
+[node name="Slot2" type="Button" parent="Slots" unique_id=133616671]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "2
+"
+
+[node name="Slot3" type="Button" parent="Slots" unique_id=363928294]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "3"
+
+[node name="Slot4" type="Button" parent="Slots" unique_id=1318166530]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "4"
+
+[node name="Slot5" type="Button" parent="Slots" unique_id=423079741]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "5"
+
+[node name="Slot6" type="Button" parent="Slots" unique_id=706677918]
+self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "6"
+
+[node name="Demeter" type="TextureProgressBar" parent="." unique_id=936041329]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -630.0
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("2_bw2rt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112780457]

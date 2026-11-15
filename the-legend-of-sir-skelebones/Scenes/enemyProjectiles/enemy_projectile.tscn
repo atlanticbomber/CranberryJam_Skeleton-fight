@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4wajm4msv657"]
+
+[ext_resource type="Script" uid="uid://v3ov4fmbfjpk" path="res://Scripts/enemy_projectile.gd" id="1_ibebl"]
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="2_gjudp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibebl"]
+radius = 14.0
+
+[node name="EnemyProjectile" type="Area2D" unique_id=1302272890]
+script = ExtResource("1_ibebl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554850577]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_ibebl")
+
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D" unique_id=1413470676]
+show_behind_parent = true
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_gjudp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

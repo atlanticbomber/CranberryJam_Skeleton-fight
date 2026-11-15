@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://boc48dfmmofmd"]
+
+[ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_8taft"]
+
+[resource]
+script = ExtResource("1_8taft")
+stopRange = 500.0
+metadata/_custom_type_script = "uid://i70lelemux25"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://dq44832xpejvv"]
+
+[ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="1_2f5tw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2lqx"]
+radius = 200.0
+height = 450.0
+
+[resource]
+script = ExtResource("1_2f5tw")
+shape = SubResource("CapsuleShape2D_g2lqx")
+towardsCenter = -5.0
+delay = 1.0
+damage = 20.0
+metadata/_custom_type_script = "uid://dk5vp3u7drp0r"

@@ -2,19 +2,83 @@
 
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_qu763"]
+[ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
+[ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/skelebro/Foot.png" id="3_tn4lu"]
+[ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/skelebro/Body.png" id="4_n648a"]
+[ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/skelebro/Skull.png" id="5_tta51"]
+[ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4euk"]
-radius = 73.0
-height = 146.0
+radius = 62.0
+height = 124.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
+radius = 80.0
+height = 400.0
 
 [node name="Skelebro" type="CharacterBody2D" unique_id=1342470513]
 script = ExtResource("1_hodaq")
+metadata/_edit_vertical_guides_ = [-62.0, 62.0]
+metadata/_edit_horizontal_guides_ = [-61.0, 63.0]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=537610508]
 texture = ExtResource("1_qu763")
 
+[node name="Sprite" type="Node2D" parent="." unique_id=832111743]
+
+[node name="BackFoot" type="Sprite2D" parent="Sprite" unique_id=1008916344]
+self_modulate = Color(0.73864496, 0.7941589, 0.9053476, 1)
+position = Vector2(5.0000014, 33.000004)
+rotation = -0.2984513
+texture = ExtResource("3_tn4lu")
+offset = Vector2(10, -40)
+
+[node name="FrontFoot" type="Sprite2D" parent="Sprite" unique_id=294391460]
+position = Vector2(-10.000001, 34)
+rotation = -0.017453292
+texture = ExtResource("3_tn4lu")
+offset = Vector2(10, -40)
+
+[node name="Body" type="Sprite2D" parent="Sprite" unique_id=690632020]
+texture = ExtResource("4_n648a")
+
+[node name="Skull" type="Sprite2D" parent="Sprite" unique_id=1649143312]
+texture = ExtResource("5_tta51")
+
+[node name="BigEye" type="Sprite2D" parent="Sprite/Skull" unique_id=1047688309]
+position = Vector2(1, 0)
+texture = ExtResource("6_tta51")
+
+[node name="SmallEye" type="Sprite2D" parent="Sprite/Skull" unique_id=1329254508]
+position = Vector2(20, -5)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_tta51")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1592051699]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810147069]
+visible = false
 shape = SubResource("CapsuleShape2D_l4euk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=865916813]
 position_smoothing_enabled = true
+
+[node name="RollCooldown" type="Timer" parent="." unique_id=991862256]
+one_shot = true
+
+[node name="WeaponCooldown" type="Timer" parent="." unique_id=284254133]
+one_shot = true
+
+[node name="ICooldown" type="Timer" parent="." unique_id=165803018]
+one_shot = true
+
+[node name="WeaponRange" type="Area2D" parent="." unique_id=187323184]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRange" unique_id=1446454061]
+position = Vector2(200, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fn4k1")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=342455274]
+stream = ExtResource("3_851mo")
