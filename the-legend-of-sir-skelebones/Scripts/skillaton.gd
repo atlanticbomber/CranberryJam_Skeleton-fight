@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("skillaton") and not $AnimationPlayer.is_playing():
+		$SkillTree.visible = false
 		$AnimationPlayer.play("Rise",-1,-1,true)
 		await $AnimationPlayer.animation_finished 
 		get_tree().paused = false
@@ -43,6 +44,11 @@ func eyeStat():
 	$Head/NumberEyecon.visible =true
 	$AnimationPlayer.play("blink")
 
+func _process(delta: float) -> void:
+	$Ribs/OriginFront/Label.text = "Vitamins: "+str(Stats.Vitamins)+"
+	Arms: " + str(Stats.Bones[0])+"
+	Legs: " + str(Stats.Bones[1])+"
+	Ribs: " + str(Stats.Bones[2])
 
 func _on_number_eye_button_pressed() -> void:
 	if Stats.Vitamins>0 and Stats.PlayerLevels[eyeCheck]<9:

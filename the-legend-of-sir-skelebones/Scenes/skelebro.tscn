@@ -1,13 +1,189 @@
 [gd_scene format=3 uid="uid://c55kltgk0j6d5"]
 
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
+[ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="2_4f1mv"]
 [ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
 [ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/skelebro/Foot.png" id="3_tn4lu"]
 [ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/skelebro/Body.png" id="4_n648a"]
 [ext_resource type="Texture2D" uid="uid://crh6abp7jyy5f" path="res://Sprites/skelebro/UpperArm.png" id="5_1caf8"]
+[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/skelebro/RealFist.png" id="5_8oytp"]
 [ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/skelebro/Skull.png" id="5_tta51"]
 [ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/skelebro/Hand.png" id="6_8oytp"]
 [ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
+[ext_resource type="Texture2D" uid="uid://b1nnxy2out5dv" path="res://Sprites/skelebro/Bow.png" id="8_1caf8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
+radius = 80.0
+height = 400.0
+
+[sub_resource type="Gradient" id="Gradient_8oytp"]
+offsets = PackedFloat32Array(0.009756098, 0.8341463, 1)
+colors = PackedColorArray(0.7176471, 0.6431373, 0.9254902, 0.34509805, 1, 1, 1, 0.16585368, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l4euk"]
+gradient = SubResource("Gradient_8oytp")
+
+[sub_resource type="Animation" id="Animation_4f1mv"]
+resource_name = "0"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -9), Vector2(15, -11), Vector2(12, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Fist:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.039301015, 0.1667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18.000004, 7), Vector2(26.000002, -26.000004), Vector2(33, -5.999998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.14835298, -2.1485003092050197, -0.9669124056048581]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fist:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.039301015, 0.1667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.51836276, -2.406809, -0.58294]
+}
+
+[sub_resource type="Animation" id="Animation_bn1np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Fist:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.000004, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.14835298]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fist:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.51836276]
+}
+
+[sub_resource type="Animation" id="Animation_qleuj"]
+resource_name = "return"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, -7), Vector2(8, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.9669124056048581, -0.14835298641951802]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Fist:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(33, -5.999998), Vector2(18.000004, 7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fist:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.58294, -0.51836276]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgf5t"]
+_data = {
+&"0": SubResource("Animation_4f1mv"),
+&"RESET": SubResource("Animation_bn1np"),
+&"return": SubResource("Animation_qleuj")
+}
 
 [sub_resource type="Gradient" id="Gradient_pqsy5"]
 offsets = PackedFloat32Array(0, 0.764977, 1)
@@ -294,7 +470,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.061086524, 0.12217304763960307, 0.029670598]
+"values": [0.0, 0.061086524, 0.12217304763960309, 0.029670598]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1caf8"]
@@ -308,14 +484,23 @@ _data = {
 radius = 30.0
 height = 124.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
-radius = 80.0
-height = 400.0
-
 [node name="Skelebro" type="CharacterBody2D" unique_id=1342470513]
 script = ExtResource("1_hodaq")
+currentWeapon = ExtResource("2_4f1mv")
 metadata/_edit_vertical_guides_ = [-62.0, 62.0]
 metadata/_edit_horizontal_guides_ = [-61.0, 63.0]
+
+[node name="WeaponRange" type="Area2D" parent="." unique_id=187323184]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRange" unique_id=1446454061]
+position = Vector2(200, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fn4k1")
+
+[node name="Polygon2D" type="Polygon2D" parent="WeaponRange" unique_id=2005503545]
+texture = SubResource("GradientTexture1D_l4euk")
+polygon = PackedVector2Array(3, 0, 300, -40, 300, 40)
+uv = PackedVector2Array(3, 0, 366, -68, 361, 71)
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1453798953]
 
@@ -335,6 +520,23 @@ offset = Vector2(10, -40)
 [node name="Body" type="Sprite2D" parent="Sprite" unique_id=690632020]
 texture = ExtResource("4_n648a")
 
+[node name="ActiveUpperArm" type="Sprite2D" parent="Sprite/Body" unique_id=1163281840]
+show_behind_parent = true
+position = Vector2(8, -9)
+rotation = -0.14835298
+texture = ExtResource("5_1caf8")
+offset = Vector2(-20, 6)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/Body/ActiveUpperArm" unique_id=1258283973]
+libraries/ = SubResource("AnimationLibrary_wgf5t")
+
+[node name="Fist" type="Sprite2D" parent="Sprite/Body" unique_id=1804347329]
+position = Vector2(18.000004, 7)
+rotation = -0.51836276
+texture = ExtResource("5_8oytp")
+offset = Vector2(30, -13)
+
 [node name="UpperArm" type="Sprite2D" parent="Sprite/Body" unique_id=1573763493]
 show_behind_parent = true
 position = Vector2(-2, -2)
@@ -343,6 +545,9 @@ texture = ExtResource("5_1caf8")
 [node name="Hand" type="Sprite2D" parent="Sprite/Body" unique_id=605967102]
 position = Vector2(-3, -5)
 texture = ExtResource("6_8oytp")
+
+[node name="Bow" type="Sprite2D" parent="Sprite/Body" unique_id=1460059464]
+texture = ExtResource("8_1caf8")
 
 [node name="Skull" type="Sprite2D" parent="Sprite" unique_id=1649143312]
 position = Vector2(0, -4)
@@ -393,13 +598,6 @@ one_shot = true
 
 [node name="ICooldown" type="Timer" parent="." unique_id=165803018]
 one_shot = true
-
-[node name="WeaponRange" type="Area2D" parent="." unique_id=187323184]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRange" unique_id=1446454061]
-position = Vector2(200, 0)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_fn4k1")
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=342455274]
 stream = ExtResource("3_851mo")

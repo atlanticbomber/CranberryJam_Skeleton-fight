@@ -3,8 +3,6 @@ extends CharacterBody2D
 
 @export var currentWeapon:WeaponResource
 
-const SPEED = 530.0
-
 var rollBonus: float = 1
 var rollConst: float = 3.0
 var rollWaitTimer: float = 2.0
@@ -60,11 +58,15 @@ func _process(_delta: float) -> void:
 	#Eye Motion
 	$Sprite/Skull/BigEye.position = Vector2(3.5,-0.5) + Vector2(3,1.5)*(get_global_mouse_position() - position).normalized()
 	$Sprite/Skull/SmallEye.position = Vector2(22,-6.0) + Vector2(1.5,1.5)*(get_global_mouse_position() - position).normalized()
-
+	
+	
+	
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and weaponTimer.is_stopped():
 		print("frame",get_tree().get_frame())
+		var weaponPlayer:AnimationPlayer = $Sprite/Body/ActiveUpperArm/AnimationPlayer
 		weaponTimer.start(currentWeapon.delay)
+		weaponPlayer.play("0",-1,0.2/currentWeapon.delay)
 		await weaponTimer.timeout
 		for body in weaponRange.get_overlapping_bodies():
 			if body.has_method("EnemyDamage"):
@@ -72,6 +74,7 @@ func _input(_event: InputEvent) -> void:
 				print(Stats.currentActive)
 				body.EnemyDamage(currentWeapon.damage*Stats.PlayerAttack)
 		weaponTimer.start(currentWeapon.cooldown)
+		weaponPlayer.play("return",-1,0.5/currentWeapon.cooldown)
 
 func takeDamage(damage:int):
 	if IFrames.is_stopped():
@@ -84,5 +87,11 @@ func weaponChange():
 	currentWeapon = Stats.currentActive
 	weaponShape.shape = currentWeapon.shape
 	weaponShape.position.x = (currentWeapon.shape.height/2) - currentWeapon.towardsCenter
+	$Sprite/Body/Fist.texture = currentWeapon.texture
+	
+	var newShape:PackedVector2Array = [Vector2(3,0),
+	Vector2(currentWeapon.shape.height,-currentWeapon.shape.radius),
+	Vector2(currentWeapon.shape.height,currentWeapon.shape.radius)]
+	$WeaponRange/Polygon2D.polygon = newShape
 
 	

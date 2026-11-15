@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="2_gjn1n"]
 [ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="3_1t2s1"]
+[ext_resource type="Resource" uid="uid://chk1xky3oyutb" path="res://Resources/Weapon/fist.tres" id="3_dvsk4"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="3_gjn1n"]
 [ext_resource type="Texture2D" uid="uid://bjvknmq7jbp34" path="res://Sprites/HealtHbar/Hback.png" id="5_74ohg"]
 [ext_resource type="Texture2D" uid="uid://be42co5ue4jpm" path="res://Sprites/HealtHbar/Hcase.png" id="6_cjtla"]
@@ -16,6 +17,48 @@
 [sub_resource type="LabelSettings" id="LabelSettings_l4euk"]
 font_size = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_w0keb"]
+font_size = 25
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_74ohg"]
+resource_name = "Bone Alert"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1.2, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cjtla"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btved"]
+_data = {
+&"Bone Alert": SubResource("Animation_74ohg"),
+&"RESET": SubResource("Animation_cjtla")
+}
+
 [node name="GameUI" type="Control" unique_id=2109985960]
 process_mode = 3
 layout_mode = 3
@@ -25,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjnnq")
-slots = Array[ExtResource("2_gjn1n")]([ExtResource("3_gjn1n"), ExtResource("3_1t2s1"), null, null, null, null])
+slots = Array[ExtResource("2_gjn1n")]([ExtResource("3_dvsk4"), ExtResource("3_1t2s1"), ExtResource("3_gjn1n"), null, null])
 metadata/_edit_horizontal_guides_ = [1058.0, 943.0]
 
 [node name="Health" type="TextureProgressBar" parent="." unique_id=1900385450]
@@ -147,6 +190,27 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("10_1pjl6")
+
+[node name="BoneAlert" type="Label" parent="." unique_id=1729113170]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 236.0
+offset_right = -82.0
+offset_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Arm Bone Collected"
+label_settings = SubResource("LabelSettings_w0keb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=313817205]
+root_node = NodePath("../BoneAlert")
+libraries/ = SubResource("AnimationLibrary_btved")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1875535730]
 color = Color(0.8509804, 0.8156863, 0.94509804, 1)

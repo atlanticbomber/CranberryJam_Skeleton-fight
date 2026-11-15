@@ -15,6 +15,17 @@ func _process(_delta: float) -> void:
 	if Stats.Demeter >= Stats.MaxDemeter:
 		Stats.Vitamins += 1
 		Stats.Vitaminscollected +=1
+		
+		var randomBone = randi_range(0,2)
+		if randomBone == 0:
+			$BoneAlert.text = "Arm Bone Collected"
+		elif randomBone ==1:
+			$BoneAlert.text = "Leg Bone Collected"
+		elif randomBone ==2:
+			$BoneAlert.text = "Rib Bone Collected"
+		$AnimationPlayer.play("Bone Alert")	
+		Stats.Bones[randomBone]+=1
+		
 		Stats.Demeter = 0 
 		Stats.MaxDemeter = floori(5 * (1.2**Stats.Vitaminscollected))
 	

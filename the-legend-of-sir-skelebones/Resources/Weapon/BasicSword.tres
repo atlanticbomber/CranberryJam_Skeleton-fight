@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://dfbkjyrsa3b0k"]
 
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="1_g2lqx"]
+[ext_resource type="Texture2D" uid="uid://cpe5yo4co1gmd" path="res://Sprites/weapons/BoneBlade.png" id="2_w51tk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2lqx"]
 radius = 180.0
@@ -10,4 +11,6 @@ height = 360.0
 script = ExtResource("1_g2lqx")
 shape = SubResource("CapsuleShape2D_g2lqx")
 towardsCenter = 100.0
+cooldown = 0.4
+texture = ExtResource("2_w51tk")
 metadata/_custom_type_script = "uid://dk5vp3u7drp0r"
