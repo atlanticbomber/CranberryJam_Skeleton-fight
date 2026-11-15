@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ewltrbi5kgy4"]
+
+[ext_resource type="Script" uid="uid://c3cra8ygyucyp" path="res://Scenes/game_over.gd" id="1_1d8ia"]
+[ext_resource type="Texture2D" uid="uid://c023v3giwrh35" path="res://Sprites/menu/GameOverScreen.png" id="1_thwhc"]
+[ext_resource type="Texture2D" uid="uid://ci4ksn2dj0bcl" path="res://Sprites/menu/GameOverButton.png" id="2_1d8ia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thwhc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d8ia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uwv4"]
+bg_color = Color(1, 1, 1, 0.078431375)
+
+[sub_resource type="Animation" id="Animation_1d8ia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6uwv4"]
+resource_name = "spawn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0ppo"]
+_data = {
+&"RESET": SubResource("Animation_1d8ia"),
+&"spawn": SubResource("Animation_6uwv4")
+}
+
+[node name="GameOver" type="Control" unique_id=22916791]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1d8ia")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1183210147]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_thwhc")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1646944618]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_1d8ia")
+
+[node name="Button" type="Button" parent="." unique_id=1680015265]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -66.0
+offset_right = 177.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_thwhc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1d8ia")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6uwv4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1930883887]
+libraries/ = SubResource("AnimationLibrary_x0ppo")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

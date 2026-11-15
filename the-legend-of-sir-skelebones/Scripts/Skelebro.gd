@@ -82,8 +82,14 @@ func takeDamage(damage:int):
 	if IFrames.is_stopped():
 		Stats.PlayerHP -= damage
 		IFrames.start(IFramesWaitTime)
-	if Stats.PlayerHP <= 0:
-		game_over.emit()
+	if Stats.PlayerHP == 0:
+		process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+		get_tree().paused = true
+		$Camera2D.zoom = Vector2(1.5,1.5)
+		$Sprite/Body/ActiveUpperArm/AnimationPlayer.play("die")
+		await $Sprite/Body/ActiveUpperArm/AnimationPlayer.animation_finished
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 	
 func weaponChange():
 	#print(Stats.currentActive)

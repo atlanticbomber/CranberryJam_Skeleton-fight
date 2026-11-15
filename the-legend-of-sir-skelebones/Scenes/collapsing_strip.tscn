@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://clu1e2ljyeos1"]
 
 [ext_resource type="Script" uid="uid://b28vip2kbhup3" path="res://Scripts/collapsed_strip.gd" id="1_evquh"]
+[ext_resource type="Texture2D" uid="uid://ue0yl3mje61q" path="res://Sprites/FieryPitsofHell.png" id="2_7qqus"]
 [ext_resource type="Texture2D" uid="uid://biqro62cl5ekx" path="res://Sprites/Grass1.png" id="3_7qqus"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nrax6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8h3l"]
+
+[sub_resource type="Gradient" id="Gradient_7qqus"]
+offsets = PackedFloat32Array(0, 0.7672811, 0.9861751)
+colors = PackedColorArray(1, 1, 1, 0, 0.75686276, 1, 0.28235295, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l4euk"]
+gradient = SubResource("Gradient_7qqus")
+fill_from = Vector2(0.508547, 0)
+fill_to = Vector2(0.5277778, 0.99358976)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrax6"]
 size = Vector2(1890, 100)
@@ -43,6 +53,18 @@ tracks/2/path = NodePath(".:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fiery/PointLight2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -87,6 +109,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fiery/PointLight2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oaahv"]
 _data = {
@@ -110,6 +144,16 @@ shape = SubResource("WorldBoundaryShape2D_nrax6")
 position = Vector2(-945, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_t8h3l")
+
+[node name="Fiery" type="Sprite2D" parent="." unique_id=1340976599]
+texture = ExtResource("2_7qqus")
+
+[node name="PointLight2D" type="PointLight2D" parent="Fiery" unique_id=1164151169]
+position = Vector2(6.5000267, -164.00002)
+scale = Vector2(30.140629, 9.3125)
+color = Color(0.7294118, 0.9882353, 0, 1)
+energy = 1.08
+texture = SubResource("GradientTexture2D_l4euk")
 
 [node name="Tile" type="Sprite2D" parent="." unique_id=1225562332]
 texture = ExtResource("3_7qqus")

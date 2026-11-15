@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="2_4f1mv"]
 [ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
-[ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/skelebro/Foot.png" id="3_tn4lu"]
-[ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/skelebro/Body.png" id="4_n648a"]
-[ext_resource type="Texture2D" uid="uid://crh6abp7jyy5f" path="res://Sprites/skelebro/UpperArm.png" id="5_1caf8"]
-[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/skelebro/RealFist.png" id="5_8oytp"]
-[ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/skelebro/Skull.png" id="5_tta51"]
-[ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/skelebro/Hand.png" id="6_8oytp"]
-[ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
-[ext_resource type="Texture2D" uid="uid://b1nnxy2out5dv" path="res://Sprites/skelebro/Bow.png" id="8_1caf8"]
+[ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/Skelebro/Foot.png" id="3_tn4lu"]
+[ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/Skelebro/Body.png" id="4_n648a"]
+[ext_resource type="Texture2D" uid="uid://crh6abp7jyy5f" path="res://Sprites/Skelebro/UpperArm.png" id="5_1caf8"]
+[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/Skelebro/RealFist.png" id="5_8oytp"]
+[ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/Skelebro/Skull.png" id="5_tta51"]
+[ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/Skelebro/Hand.png" id="6_8oytp"]
+[ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/Skelebro/Eye.png" id="6_tta51"]
+[ext_resource type="Texture2D" uid="uid://b1nnxy2out5dv" path="res://Sprites/Skelebro/Bow.png" id="8_1caf8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
 radius = 80.0
@@ -60,7 +60,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.04, 0.16666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.14835298, -2.1485003092050197, -0.9669124056048581]
+"values": [-0.14835298, -2.1485003092050197, -0.966912405604858]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -125,6 +125,57 @@ tracks/3/keys = {
 "update": 0,
 "values": [-0.51836276]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Skull:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Skull:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wgf5t"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Skull:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -4), Vector2(0, -50), Vector2(0, -100), Vector2(0, -40), Vector2(0, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Skull:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.29698506, 0.5, 0.8176034, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.3684118, 5.0387654, 7.202974, 8.302531]
+}
 
 [sub_resource type="Animation" id="Animation_qleuj"]
 resource_name = "return"
@@ -151,7 +202,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.9669124056048581, -0.14835298641951802]
+"values": [-0.966912405604858, -0.14835298641951802]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -182,6 +233,7 @@ tracks/3/keys = {
 _data = {
 &"0": SubResource("Animation_4f1mv"),
 &"RESET": SubResource("Animation_bn1np"),
+&"die": SubResource("Animation_wgf5t"),
 &"return": SubResource("Animation_qleuj")
 }
 
@@ -588,6 +640,7 @@ shape = SubResource("CapsuleShape2D_l4euk")
 zoom = Vector2(1.1, 1.1)
 limit_left = -930
 limit_right = 930
+limit_bottom = 1000
 position_smoothing_enabled = true
 
 [node name="RollCooldown" type="Timer" parent="." unique_id=991862256]

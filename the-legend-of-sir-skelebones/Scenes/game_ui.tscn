@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="2_gjn1n"]
 [ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="3_1t2s1"]
-[ext_resource type="Resource" uid="uid://3andt5ko1dbu" path="res://Resources/Weapon/BasicFemur.tres" id="3_cjtla"]
+[ext_resource type="Resource" uid="uid://cyj0hbyjq2ncn" path="res://Resources/Weapon/BasicSycthe.tres" id="3_cjtla"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="3_gjn1n"]
 [ext_resource type="Texture2D" uid="uid://bjvknmq7jbp34" path="res://Sprites/HealtHbar/Hback.png" id="5_74ohg"]
 [ext_resource type="Texture2D" uid="uid://be42co5ue4jpm" path="res://Sprites/HealtHbar/Hcase.png" id="6_cjtla"]

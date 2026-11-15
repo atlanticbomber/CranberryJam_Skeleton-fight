@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://chk1xky3oyutb"]
 
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="1_jmvv4"]
-[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/skelebro/RealFist.png" id="2_nt1hv"]
+[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/Skelebro/RealFist.png" id="2_nt1hv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt1hv"]
 radius = 60.0
