@@ -9,6 +9,7 @@ height = 450.0
 
 [resource]
 script = ExtResource("1_2f5tw")
+name = "Rib Wrecker"
 shape = SubResource("CapsuleShape2D_g2lqx")
 towardsCenter = -5.0
 delay = 1.0

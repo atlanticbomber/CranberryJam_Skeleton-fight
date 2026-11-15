@@ -34,6 +34,10 @@ func _process(_delta: float) -> void:
 	
 	$Health/Skull/Label.text = str(Stats.Vitamins)
 	
+	$Slots/Slot1.text = "1\n[ "+slots[0].name+" ]" if slots[0] != null else "1\n[ Empty ]"
+	$Slots/Slot2.text = "2\n[ "+slots[1].name+" ]" if slots[1] != null else "2\n[ Empty ]"
+	$Slots/Slot3.text = "3\n[ "+slots[2].name+" ]" if slots[2] != null else "3\n[ Empty ]"
+	
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Slot1") or $Slots/Slot1.button_pressed:

@@ -125,7 +125,11 @@ grow_vertical = 0
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-text = "1"
+offset_transform_scale = Vector2(2, 2)
+text = "1
+Bone Blade"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Slot2" type="Button" parent="Slots" unique_id=133616671]
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
@@ -141,18 +145,21 @@ layout_mode = 2
 text = "3"
 
 [node name="Slot4" type="Button" parent="Slots" unique_id=1318166530]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "4"
 
 [node name="Slot5" type="Button" parent="Slots" unique_id=423079741]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "5"
 
 [node name="Slot6" type="Button" parent="Slots" unique_id=706677918]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2

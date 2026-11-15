@@ -1,6 +1,7 @@
 extends Resource
 class_name WeaponResource
 
+@export var name: String = "fist"
 @export var shape:CapsuleShape2D
 @export var towardsCenter:float = 0 
 @export var delay:float = 0.2
