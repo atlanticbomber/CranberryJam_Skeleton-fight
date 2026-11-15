@@ -35,7 +35,7 @@ func _input(_event: InputEvent) -> void:
 			Stats.currentActive = slots[2]
 			Stats.emit_signal("weaponChange")
 			#print("slot2",slots[1],Stats.currentActive)
-	elif Input.is_action_just_pressed("skillaton") or $Skull.button_pressed:
+	elif Input.is_action_just_pressed("skillaton") or $Health/Skull.button_pressed:
 		if $CanvasLayer.get_child_count() == 0:
 			var newSkillaton = load("res://Scenes/skillaton.tscn").instantiate()
 			$CanvasLayer.add_child(newSkillaton)

@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://cax1c2xwd5jge"]
 
-[ext_resource type="Texture2D" uid="uid://dsx7skilbkojs" path="res://Sprites/26getty.600.webp" id="1_gek4i"]
 [ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
-[ext_resource type="Texture2D" uid="uid://b4rnt26mmj1ck" path="res://Sprites/Demeter.png" id="2_bw2rt"]
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="2_gjn1n"]
 [ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="3_1t2s1"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="3_gjn1n"]
+[ext_resource type="Texture2D" uid="uid://bjvknmq7jbp34" path="res://Sprites/HealtHbar/Hback.png" id="5_74ohg"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="6_3t1kc"]
+[ext_resource type="Texture2D" uid="uid://be42co5ue4jpm" path="res://Sprites/HealtHbar/Hcase.png" id="6_cjtla"]
+[ext_resource type="Texture2D" uid="uid://dle0e218yjnma" path="res://Sprites/HealtHbar/Hbar.png" id="7_btved"]
+[ext_resource type="Texture2D" uid="uid://bcqo66kdehujo" path="res://Sprites/Demeter/Dback.png" id="7_y8vuf"]
+[ext_resource type="Texture2D" uid="uid://2xsluxv6bvgh" path="res://Sprites/Demeter/Dcase.png" id="8_1pjl6"]
+[ext_resource type="Texture2D" uid="uid://tk2f8fclyqn4" path="res://Sprites/Demeter/DMilk.png" id="9_dvsk4"]
+[ext_resource type="Texture2D" uid="uid://dbdtlo41h8ixm" path="res://Sprites/Demeter/DHand.png" id="10_1pjl6"]
 
 [node name="GameUI" type="Control" unique_id=2109985960]
 process_mode = 3
@@ -25,23 +30,27 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -290.0
-offset_right = 600.0
+offset_left = -75.0
+offset_top = -396.0
+offset_right = 800.0
+offset_bottom = -67.0
 grow_vertical = 0
-value = 100.0
-texture_progress = ExtResource("1_gek4i")
+value = 60.0
+texture_under = ExtResource("5_74ohg")
+texture_over = ExtResource("6_cjtla")
+texture_progress = ExtResource("7_btved")
 
-[node name="Skull" type="Button" parent="." unique_id=1319970530]
+[node name="Skull" type="Button" parent="Health" unique_id=1319970530]
 custom_minimum_size = Vector2(75, 75)
 custom_maximum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 620.0
-offset_top = -176.0
-offset_right = 670.0
-offset_bottom = -126.0
+offset_left = 636.0
+offset_top = -281.0
+offset_right = 711.0
+offset_bottom = -206.0
 grow_vertical = 0
 text = "
 "
@@ -101,13 +110,32 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -135.0
-offset_top = -630.0
-offset_right = -10.0
+offset_left = -280.0
+offset_top = -836.0
+offset_right = 57.0
+offset_bottom = 26.0
 grow_horizontal = 0
 grow_vertical = 0
 value = 100.0
 fill_mode = 3
-texture_progress = ExtResource("2_bw2rt")
+texture_under = ExtResource("7_y8vuf")
+texture_over = ExtResource("8_1pjl6")
+texture_progress = ExtResource("9_dvsk4")
+texture_progress_offset = Vector2(0, 2)
+
+[node name="TextureRect" type="TextureRect" parent="Demeter" unique_id=992905617]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_1pjl6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112780457]
