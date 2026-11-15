@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://b5qry3f83djqx"]
 
 [ext_resource type="PackedScene" uid="uid://b322hx6y0syrb" path="res://Scenes/ground_strip.tscn" id="1_vqaso"]
+[ext_resource type="PackedScene" uid="uid://clu1e2ljyeos1" path="res://Scenes/collapsing_strip.tscn" id="2_tto40"]
 [ext_resource type="Script" uid="uid://cpfw40jitl48f" path="res://Scripts/tile_map_layer.gd" id="2_uuaxm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c3an2"]
 scenes/1/scene = ExtResource("1_vqaso")
+scenes/2/scene = ExtResource("2_tto40")
 
 [sub_resource type="TileSet" id="TileSet_nodoi"]
 tile_size = Vector2i(1890, 100)
 sources/0 = SubResource("TileSetScenesCollectionSource_c3an2")
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=1218908368]
+position = Vector2(-945, 0)
 tile_set = SubResource("TileSet_nodoi")
 script = ExtResource("2_uuaxm")
