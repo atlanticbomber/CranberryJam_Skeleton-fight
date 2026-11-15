@@ -640,6 +640,7 @@ shape = SubResource("CapsuleShape2D_l4euk")
 zoom = Vector2(1.1, 1.1)
 limit_left = -930
 limit_right = 930
+limit_bottom = 1000
 position_smoothing_enabled = true
 
 [node name="RollCooldown" type="Timer" parent="." unique_id=991862256]
