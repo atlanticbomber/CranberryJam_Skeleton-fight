@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://c1wfelskkuqhb"]
 
 [ext_resource type="Script" uid="uid://bcufyafkfr6gt" path="res://Scripts/skill_node.gd" id="1_c7f8x"]
+[ext_resource type="Texture2D" uid="uid://uxcrv01ljdfm" path="res://Sprites/Skillaton/ActiveNode.png" id="1_obn4u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4euk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0keb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f51c0"]
 
 [node name="0" type="Button" unique_id=1199571745]
 z_index = 1
@@ -17,7 +24,13 @@ offset_right = 50.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4euk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0keb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f51c0")
 text = "Name"
+icon = ExtResource("1_obn4u")
+icon_alignment = 1
 script = ExtResource("1_c7f8x")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1906808253]

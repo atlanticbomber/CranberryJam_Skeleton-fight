@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://3andt5ko1dbu"]
+
+[ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="1_4v2ld"]
+[ext_resource type="Texture2D" uid="uid://7i8kdmwdspm1" path="res://Sprites/weapons/Femurder.png" id="2_4fobw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_upyjs"]
+radius = 20.0
+height = 400.0
+
+[resource]
+script = ExtResource("1_4v2ld")
+name = "Femurder"
+shape = SubResource("CapsuleShape2D_upyjs")
+delay = 0.3
+cooldown = 0.45
+damage = 20.0
+texture = ExtResource("2_4fobw")
+metadata/_custom_type_script = "uid://dk5vp3u7drp0r"

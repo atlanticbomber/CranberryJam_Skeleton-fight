@@ -3,15 +3,61 @@
 [ext_resource type="Script" uid="uid://brtbvvs3hvk6y" path="res://Scripts/game_ui.gd" id="1_xjnnq"]
 [ext_resource type="Script" uid="uid://dk5vp3u7drp0r" path="res://Resources/Weapon/WeaponResource.gd" id="2_gjn1n"]
 [ext_resource type="Resource" uid="uid://dfbkjyrsa3b0k" path="res://Resources/Weapon/BasicSword.tres" id="3_1t2s1"]
+[ext_resource type="Resource" uid="uid://3andt5ko1dbu" path="res://Resources/Weapon/BasicFemur.tres" id="3_cjtla"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="3_gjn1n"]
 [ext_resource type="Texture2D" uid="uid://bjvknmq7jbp34" path="res://Sprites/HealtHbar/Hback.png" id="5_74ohg"]
-[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="6_3t1kc"]
 [ext_resource type="Texture2D" uid="uid://be42co5ue4jpm" path="res://Sprites/HealtHbar/Hcase.png" id="6_cjtla"]
 [ext_resource type="Texture2D" uid="uid://dle0e218yjnma" path="res://Sprites/HealtHbar/Hbar.png" id="7_btved"]
 [ext_resource type="Texture2D" uid="uid://bcqo66kdehujo" path="res://Sprites/Demeter/Dback.png" id="7_y8vuf"]
 [ext_resource type="Texture2D" uid="uid://2xsluxv6bvgh" path="res://Sprites/Demeter/Dcase.png" id="8_1pjl6"]
+[ext_resource type="Texture2D" uid="uid://cbr2yga8qnpnh" path="res://Sprites/HealtHbar/HealthSkull.png" id="8_74ohg"]
 [ext_resource type="Texture2D" uid="uid://tk2f8fclyqn4" path="res://Sprites/Demeter/DMilk.png" id="9_dvsk4"]
 [ext_resource type="Texture2D" uid="uid://dbdtlo41h8ixm" path="res://Sprites/Demeter/DHand.png" id="10_1pjl6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4euk"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0keb"]
+font_size = 25
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_74ohg"]
+resource_name = "Bone Alert"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1.2, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cjtla"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btved"]
+_data = {
+&"Bone Alert": SubResource("Animation_74ohg"),
+&"RESET": SubResource("Animation_cjtla")
+}
 
 [node name="GameUI" type="Control" unique_id=2109985960]
 process_mode = 3
@@ -22,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xjnnq")
-slots = Array[ExtResource("2_gjn1n")]([ExtResource("3_gjn1n"), ExtResource("3_1t2s1"), null, null, null, null])
+slots = Array[ExtResource("2_gjn1n")]([ExtResource("3_cjtla"), ExtResource("3_1t2s1"), ExtResource("3_gjn1n"), null, null])
 metadata/_edit_horizontal_guides_ = [1058.0, 943.0]
 
 [node name="Health" type="TextureProgressBar" parent="." unique_id=1900385450]
@@ -40,22 +86,31 @@ texture_under = ExtResource("5_74ohg")
 texture_over = ExtResource("6_cjtla")
 texture_progress = ExtResource("7_btved")
 
-[node name="Skull" type="Button" parent="Health" unique_id=1319970530]
-custom_minimum_size = Vector2(75, 75)
-custom_maximum_size = Vector2(75, 75)
+[node name="Skull" type="TextureButton" parent="Health" unique_id=511005481]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("8_74ohg")
+texture_pressed = ExtResource("8_74ohg")
+texture_hover = ExtResource("8_74ohg")
+texture_disabled = ExtResource("8_74ohg")
+
+[node name="Label" type="Label" parent="Health/Skull" unique_id=2084592968]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 636.0
-offset_top = -281.0
-offset_right = 711.0
-offset_bottom = -206.0
-grow_vertical = 0
-text = "
-"
-icon = ExtResource("6_3t1kc")
-expand_icon = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 214.5
+offset_top = -76.5
+offset_right = 254.5
+offset_bottom = -53.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "#"
+label_settings = SubResource("LabelSettings_l4euk")
+horizontal_alignment = 2
 
 [node name="Slots" type="HBoxContainer" parent="." unique_id=1450178203]
 layout_mode = 1
@@ -70,7 +125,11 @@ grow_vertical = 0
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-text = "1"
+offset_transform_scale = Vector2(2, 2)
+text = "1
+Bone Blade"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Slot2" type="Button" parent="Slots" unique_id=133616671]
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
@@ -86,18 +145,21 @@ layout_mode = 2
 text = "3"
 
 [node name="Slot4" type="Button" parent="Slots" unique_id=1318166530]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "4"
 
 [node name="Slot5" type="Button" parent="Slots" unique_id=423079741]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "5"
 
 [node name="Slot6" type="Button" parent="Slots" unique_id=706677918]
+visible = false
 self_modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
@@ -116,12 +178,10 @@ offset_right = 57.0
 offset_bottom = 26.0
 grow_horizontal = 0
 grow_vertical = 0
-value = 100.0
 fill_mode = 3
 texture_under = ExtResource("7_y8vuf")
 texture_over = ExtResource("8_1pjl6")
 texture_progress = ExtResource("9_dvsk4")
-texture_progress_offset = Vector2(0, 2)
 
 [node name="TextureRect" type="TextureRect" parent="Demeter" unique_id=992905617]
 show_behind_parent = true
@@ -137,5 +197,29 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("10_1pjl6")
+
+[node name="BoneAlert" type="Label" parent="." unique_id=1729113170]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 236.0
+offset_right = -82.0
+offset_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Arm Bone Collected"
+label_settings = SubResource("LabelSettings_w0keb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=313817205]
+root_node = NodePath("../BoneAlert")
+libraries/ = SubResource("AnimationLibrary_btved")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1875535730]
+color = Color(0.8509804, 0.8156863, 0.94509804, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112780457]

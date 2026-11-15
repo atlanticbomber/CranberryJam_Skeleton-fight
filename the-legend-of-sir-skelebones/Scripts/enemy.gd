@@ -51,14 +51,14 @@ func EnemyDamage(value:float):
 	if timerKnock.is_stopped():
 		if EnemyHP - value <= 0:
 			dying.emit()
+			Stats.Demeter+=EN.VitaminDrop
 			self.queue_free()
 		
 		EnemyHP -= value
 		$ProgressBar.value = EnemyHP
 		
-		var tempKnockback: float = 1000
 		timerKnock.start(waitTimeKnock)
-		velocity = -(Stats.PlayerLocation - position).normalized() * tempKnockback
+		velocity = -(Stats.PlayerLocation - position).normalized() * value*15
 
 func attack():
 	if timerAttack.is_stopped():

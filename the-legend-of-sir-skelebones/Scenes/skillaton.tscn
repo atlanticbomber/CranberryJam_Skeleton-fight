@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://bcr2uad3rira6"]
 
-[ext_resource type="Texture2D" uid="uid://cmq6h0d2r42ur" path="res://Sprites/icon2.svg" id="1_6jvxk"]
 [ext_resource type="Script" uid="uid://b2n8yjot7r11m" path="res://Scripts/skillaton.gd" id="1_ng6cd"]
+[ext_resource type="Texture2D" uid="uid://d021qfbe6wmuw" path="res://Sprites/Skillaton/SkillSkull.png" id="2_4klpl"]
+[ext_resource type="Texture2D" uid="uid://brnpcg70wspfu" path="res://Sprites/Skillaton/SkillRib.png" id="2_k8351"]
+[ext_resource type="Texture2D" uid="uid://bmqcf0auf718k" path="res://Sprites/Skillaton/SkillBack.png" id="2_tf0p3"]
 [ext_resource type="PackedScene" uid="uid://c1wfelskkuqhb" path="res://Scenes/SkillNode.tscn" id="3_c6shf"]
-[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="3_t3xd6"]
+[ext_resource type="Texture2D" uid="uid://qs64nphxb3h8" path="res://Sprites/Skillaton/SkillNose.png" id="7_ry1md"]
+[ext_resource type="Texture2D" uid="uid://dsd87xsxehb71" path="res://Sprites/Skillaton/SkillHand.png" id="8_cuo60"]
+[ext_resource type="Texture2D" uid="uid://dha7sjlpiyn01" path="res://Sprites/Skillaton/glownose.png" id="8_rt5c4"]
+[ext_resource type="Texture2D" uid="uid://deukx12yn10aq" path="res://Sprites/Skillaton/1.png" id="9_1x5j7"]
+[ext_resource type="Texture2D" uid="uid://ccdhyapnfjox6" path="res://Sprites/Skillaton/Origin.png" id="9_f7m1l"]
+[ext_resource type="Texture2D" uid="uid://dhpf5md3ssii4" path="res://Sprites/Skillaton/HealthEyecon.png" id="9_rt5c4"]
+[ext_resource type="Texture2D" uid="uid://cmq6h0d2r42ur" path="res://Sprites/icon2.svg" id="10_f7m1l"]
 
 [sub_resource type="Animation" id="Animation_6jvxk"]
 length = 0.001
@@ -58,7 +66,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Ribs/SkillTree:visible")
+tracks/4/path = NodePath("SkillTree:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -67,9 +75,94 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackBack:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Front:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.012741645, 0.0037785047, 0.14282048, 0.3882353)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Head/Eyecon:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Head/NumberEyecon:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Ribs/OriginFront/Label:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SkillTree:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ng6cd"]
 resource_name = "Rise"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +170,10 @@ tracks/0/path = NodePath("Head:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(430, 1070), Vector2(430, 100)]
+"values": [Vector2(0, 1100), Vector2(0, 1000), Vector2(0, -10), Vector2(0, 30)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -89,10 +182,10 @@ tracks/1/path = NodePath("Ribs:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.46666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.26666668, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(330, 1100), Vector2(330, 556)]
+"values": [Vector2(0, 800), Vector2(0, 0), Vector2(0, 30)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,10 +194,10 @@ tracks/2/path = NodePath("Hand:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 1100), Vector2(0, 906)]
+"values": [Vector2(100, 200), Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -113,36 +206,160 @@ tracks/3/path = NodePath("Hand2:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(960, 1100), Vector2(960, 906)]
+"values": [Vector2(-100, 200), Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Ribs/SkillTree:visible")
-tracks/4/interp = 1
+tracks/4/path = NodePath("SkillTree:visible")
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 1.3666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Back:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackBack:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.39215687)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Front:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.011764706, 0.003921569, 0.14117648, 0), Color(0.012741645, 0.0037785047, 0.14282048, 0.3882353)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Head/Eyecon:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Head/NumberEyecon:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Ribs/OriginFront/Label:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.15, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.7921569, 0.7490196, 0.95686275, 0.8901961)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SkillTree:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.2333333, 1.3451616),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rt5c4"]
+resource_name = "blink"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Eyecon:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.049999952, 0.099999905, 0.14999998, 0.19999993, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/NumberEyecon:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.049999952, 0.099999905, 0.14999998, 0.19999993, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6shf"]
 _data = {
 &"RESET": SubResource("Animation_6jvxk"),
-&"Rise": SubResource("Animation_ng6cd")
+&"Rise": SubResource("Animation_ng6cd"),
+&"blink": SubResource("Animation_rt5c4")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_w0keb"]
-font_size = 40
-font_color = Color(1, 0.101960786, 1, 1)
+[sub_resource type="Gradient" id="Gradient_tf0p3"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_l4euk"]
-font_size = 100
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l4euk"]
+gradient = SubResource("Gradient_tf0p3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt5c4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7m1l"]
+bg_color = Color(0.64705884, 1, 0.6784314, 0.16470589)
+
+[sub_resource type="Gradient" id="Gradient_1x5j7"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w0keb"]
+gradient = SubResource("Gradient_1x5j7")
 
 [node name="Skillaton" type="Control" unique_id=1388167043]
 process_mode = 3
@@ -157,103 +374,149 @@ script = ExtResource("1_ng6cd")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1988024514]
 libraries/ = SubResource("AnimationLibrary_c6shf")
 
-[node name="Head" type="TextureRect" parent="." unique_id=2100067558]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 500.00082
-grow_horizontal = 2
-texture = ExtResource("1_6jvxk")
+[node name="BackBack" type="TextureRect" parent="." unique_id=1102178216]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -118.0
+offset_top = -57.0
+offset_right = 1406.0
+offset_bottom = 1097.0
+texture = SubResource("GradientTexture1D_l4euk")
 
-[node name="EyeCon" type="TextureRect" parent="Head" unique_id=687882380]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -140.0
-offset_right = 175.0
-offset_bottom = 35.0
-grow_vertical = 2
-texture = ExtResource("1_6jvxk")
-
-[node name="Label" type="Label" parent="Head/EyeCon" unique_id=1155333483]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -87.5
-offset_right = 87.5
-offset_bottom = 87.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Stat"
-label_settings = SubResource("LabelSettings_w0keb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="EyeStat" type="Label" parent="Head" unique_id=674437183]
-custom_minimum_size = Vector2(175, 175)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -140.0
-offset_bottom = 35.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "#"
-label_settings = SubResource("LabelSettings_l4euk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NoseButton" type="Button" parent="Head" unique_id=862972852]
-custom_minimum_size = Vector2(75, 75)
-custom_maximum_size = Vector2(75, 75)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = 10.0
-offset_right = 37.5
-offset_bottom = 85.0
-grow_horizontal = 2
-grow_vertical = 2
-icon = ExtResource("1_6jvxk")
-expand_icon = true
-
-[node name="Ribs" type="TextureRect" parent="." unique_id=968620222]
-custom_minimum_size = Vector2(600, 500)
+[node name="Back" type="TextureRect" parent="." unique_id=2105749834]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -500.0
-offset_right = 300.0
-offset_bottom = 0.0021972656
+offset_left = -630.0
+offset_top = -1098.0
+offset_right = 630.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+texture = ExtResource("2_tf0p3")
 
-[node name="SkillTree" type="Control" parent="Ribs" unique_id=1344466886]
+[node name="Ribs" type="TextureRect" parent="." unique_id=968620222]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 28.0
+offset_right = 960.0
+offset_bottom = 1084.0005
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k8351")
+
+[node name="OriginBack" type="TextureRect" parent="Ribs" unique_id=506280747]
+z_as_relative = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_f7m1l")
+
+[node name="OriginFront" type="TextureRect" parent="Ribs" unique_id=966763464]
+self_modulate = Color(1, 1, 1, 0.58431375)
+z_index = 3
+z_as_relative = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_f7m1l")
+
+[node name="Label" type="Label" parent="Ribs/OriginFront" unique_id=300137438]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 72.0
+offset_right = 45.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vitamins: 0 
+Arms: 0 
+Legs: 0 
+Ribs: 0 "
+horizontal_alignment = 1
+
+[node name="Head" type="TextureRect" parent="." unique_id=2100067558]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -428.0
+offset_right = 1060.0
+offset_bottom = 628.00024
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_4klpl")
+
+[node name="Eyecon" type="TextureRect" parent="Head" unique_id=895487949]
+z_index = 2
+layout_mode = 1
+offset_right = 1260.0
+offset_bottom = 1056.0
+texture = ExtResource("9_rt5c4")
+
+[node name="NumberEyecon" type="TextureRect" parent="Head" unique_id=1665449148]
+z_index = 2
+layout_mode = 1
+offset_right = 1260.0
+offset_bottom = 1056.0
+mouse_filter = 0
+texture = ExtResource("9_1x5j7")
+
+[node name="NoseButton" type="TextureButton" parent="Head" unique_id=1688560037]
+z_index = 2
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 200.0
+offset_right = 50.0
+offset_bottom = 300.0
+grow_horizontal = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-579, -190)
+texture_normal = ExtResource("7_ry1md")
+texture_pressed = ExtResource("7_ry1md")
+texture_hover = ExtResource("8_rt5c4")
+
+[node name="NumberEyeButton" type="Button" parent="Head" unique_id=546184706]
+z_index = 3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 28.0
+offset_top = 113.0
+offset_right = 107.0
+offset_bottom = 225.0
+grow_horizontal = 2
+tooltip_text = "Click to level up stat"
+mouse_force_pass_scroll_events = false
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt5c4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f7m1l")
+
+[node name="SkillTree" type="Control" parent="." unique_id=1344466886]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -261,13 +524,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = 122.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="0" type="TextureRect" parent="Ribs/SkillTree" unique_id=1175895962]
+[node name="0" type="TextureRect" parent="SkillTree" unique_id=1175895962]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -275,50 +539,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -52.0
+offset_top = -64.0
+offset_right = 76.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_t3xd6")
+offset_transform_enabled = true
+texture = ExtResource("10_f7m1l")
 
-[node name="01" parent="Ribs/SkillTree" unique_id=1013178750 instance=ExtResource("3_c6shf")]
+[node name="01" parent="SkillTree" unique_id=1013178750 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = 155.0
 offset_top = -176.0011
 offset_right = 255.0
 offset_bottom = -76.0011
 
-[node name="02" parent="Ribs/SkillTree" unique_id=1147156254 instance=ExtResource("3_c6shf")]
+[node name="02" parent="SkillTree" unique_id=1147156254 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = -232.0
 offset_top = -180.0011
 offset_right = -132.0
 offset_bottom = -80.0011
 
-[node name="03" parent="Ribs/SkillTree" unique_id=870767944 instance=ExtResource("3_c6shf")]
+[node name="03" parent="SkillTree" unique_id=870767944 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = -226.0
 offset_top = 61.9989
 offset_right = -126.0
 offset_bottom = 161.9989
 
-[node name="04" parent="Ribs/SkillTree" unique_id=178370221 instance=ExtResource("3_c6shf")]
+[node name="04" parent="SkillTree" unique_id=178370221 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = 147.0
 offset_top = 55.9989
 offset_right = 247.0
 offset_bottom = 155.9989
 
-[node name="011" parent="Ribs/SkillTree" unique_id=1645607658 instance=ExtResource("3_c6shf")]
+[node name="011" parent="SkillTree" unique_id=1645607658 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = 401.0
 offset_top = -239.0011
 offset_right = 501.0
 offset_bottom = -139.0011
 
-[node name="031" parent="Ribs/SkillTree" unique_id=1354172257 instance=ExtResource("3_c6shf")]
+[node name="031" parent="SkillTree" unique_id=1354172257 instance=ExtResource("3_c6shf")]
 layout_mode = 1
 offset_left = -418.0
 offset_top = -33.0011
@@ -332,9 +597,11 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -150.0
-offset_right = 300.0
+offset_right = 1260.0
+offset_bottom = 906.0005
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+mouse_filter = 2
+texture = ExtResource("8_cuo60")
 
 [node name="Hand2" type="TextureRect" parent="." unique_id=910143168]
 custom_minimum_size = Vector2(300, 150)
@@ -346,7 +613,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
 offset_top = -150.0
-offset_bottom = 0.00024414063
+offset_right = 960.001
+offset_bottom = 906.00073
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("1_6jvxk")
+mouse_filter = 2
+texture = ExtResource("8_cuo60")
+flip_h = true
+
+[node name="Front" type="TextureRect" parent="." unique_id=1429736701]
+self_modulate = Color(0.012741645, 0.0037785047, 0.14282048, 0.3882353)
+layout_mode = 0
+offset_left = -200.0
+offset_top = -143.0
+offset_right = 1436.0
+offset_bottom = 1224.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_w0keb")
+
+[connection signal="pressed" from="Head/NoseButton" to="." method="_on_nose_button_pressed"]
+[connection signal="pressed" from="Head/NumberEyeButton" to="." method="_on_number_eye_button_pressed"]
