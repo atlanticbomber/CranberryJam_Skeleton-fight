@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://bcr2uad3rira6"]
+
+[ext_resource type="Texture2D" uid="uid://cmq6h0d2r42ur" path="res://Sprites/icon2.svg" id="1_6jvxk"]
+[ext_resource type="Script" uid="uid://b2n8yjot7r11m" path="res://Scripts/skillaton.gd" id="1_ng6cd"]
+[ext_resource type="PackedScene" uid="uid://c1wfelskkuqhb" path="res://Scenes/SkillNode.tscn" id="3_c6shf"]
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="3_t3xd6"]
+
+[sub_resource type="Animation" id="Animation_6jvxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(430, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ribs:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 556)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 906)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hand2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 906)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ribs/SkillTree:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ng6cd"]
+resource_name = "Rise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(430, 1070), Vector2(430, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ribs:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(330, 1100), Vector2(330, 556)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1100), Vector2(0, 906)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hand2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 1100), Vector2(960, 906)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ribs/SkillTree:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6shf"]
+_data = {
+&"RESET": SubResource("Animation_6jvxk"),
+&"Rise": SubResource("Animation_ng6cd")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0keb"]
+font_size = 40
+font_color = Color(1, 0.101960786, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4euk"]
+font_size = 100
+
+[node name="Skillaton" type="Control" unique_id=1388167043]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ng6cd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1988024514]
+libraries/ = SubResource("AnimationLibrary_c6shf")
+
+[node name="Head" type="TextureRect" parent="." unique_id=2100067558]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 500.00082
+grow_horizontal = 2
+texture = ExtResource("1_6jvxk")
+
+[node name="EyeCon" type="TextureRect" parent="Head" unique_id=687882380]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -140.0
+offset_right = 175.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture = ExtResource("1_6jvxk")
+
+[node name="Label" type="Label" parent="Head/EyeCon" unique_id=1155333483]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -87.5
+offset_right = 87.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stat"
+label_settings = SubResource("LabelSettings_w0keb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EyeStat" type="Label" parent="Head" unique_id=674437183]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -140.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "#"
+label_settings = SubResource("LabelSettings_l4euk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoseButton" type="Button" parent="Head" unique_id=862972852]
+custom_minimum_size = Vector2(75, 75)
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = 10.0
+offset_right = 37.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_6jvxk")
+expand_icon = true
+
+[node name="Ribs" type="TextureRect" parent="." unique_id=968620222]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -500.0
+offset_right = 300.0
+offset_bottom = 0.0021972656
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_6jvxk")
+
+[node name="SkillTree" type="Control" parent="Ribs" unique_id=1344466886]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="0" type="TextureRect" parent="Ribs/SkillTree" unique_id=1175895962]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t3xd6")
+
+[node name="01" parent="Ribs/SkillTree" unique_id=1013178750 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = 155.0
+offset_top = -176.0011
+offset_right = 255.0
+offset_bottom = -76.0011
+
+[node name="02" parent="Ribs/SkillTree" unique_id=1147156254 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -232.0
+offset_top = -180.0011
+offset_right = -132.0
+offset_bottom = -80.0011
+
+[node name="03" parent="Ribs/SkillTree" unique_id=870767944 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -226.0
+offset_top = 61.9989
+offset_right = -126.0
+offset_bottom = 161.9989
+
+[node name="04" parent="Ribs/SkillTree" unique_id=178370221 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = 147.0
+offset_top = 55.9989
+offset_right = 247.0
+offset_bottom = 155.9989
+
+[node name="011" parent="Ribs/SkillTree" unique_id=1645607658 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = 401.0
+offset_top = -239.0011
+offset_right = 501.0
+offset_bottom = -139.0011
+
+[node name="031" parent="Ribs/SkillTree" unique_id=1354172257 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -418.0
+offset_top = -33.0011
+offset_right = -318.0
+offset_bottom = 66.9989
+
+[node name="Hand" type="TextureRect" parent="." unique_id=266314377]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 300.0
+grow_vertical = 0
+texture = ExtResource("1_6jvxk")
+
+[node name="Hand2" type="TextureRect" parent="." unique_id=910143168]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -150.0
+offset_bottom = 0.00024414063
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_6jvxk")

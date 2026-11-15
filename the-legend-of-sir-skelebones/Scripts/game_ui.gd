@@ -35,13 +35,23 @@ func _input(_event: InputEvent) -> void:
 			Stats.currentActive = slots[2]
 			Stats.emit_signal("weaponChange")
 			#print("slot2",slots[1],Stats.currentActive)
-	
+	elif Input.is_action_just_pressed("skillaton") or $Skull.button_pressed:
+		if $CanvasLayer.get_child_count() == 0:
+			var newSkillaton = load("res://Scenes/skillaton.tscn").instantiate()
+			$CanvasLayer.add_child(newSkillaton)
+			get_tree().paused = true
+		else:
+			for child in $CanvasLayer.get_children():
+				child.queue_free()
+			get_tree().paused = false
+		
 	for child in $Slots.get_children():
 		child.self_modulate = Color(1.0, 1.0, 1.0, 0.784)
 	$Slots.get_child(currentSlot).self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
+		
 	
-	
+
 	
 #func HealthBarChange(value: float):
 	#HealthBar.value = Stats.PlayerHP
