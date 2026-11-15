@@ -12,6 +12,7 @@ var eyeCheck:int= 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Music.changeMusic("Skill")
 	$AnimationPlayer.play("Rise")
 	await $AnimationPlayer.animation_finished
 	eyeStat()

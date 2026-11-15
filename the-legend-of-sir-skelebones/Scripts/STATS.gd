@@ -11,6 +11,8 @@ var Demeter: float = 0.0
 var Vitamins: int = 0 
 var Vitaminscollected:int = 0 
 
+var currentScene:String = "Menu"
+
 var PlayerLocation: Vector2 = Vector2(0,0)
 
 func levelUpdate():

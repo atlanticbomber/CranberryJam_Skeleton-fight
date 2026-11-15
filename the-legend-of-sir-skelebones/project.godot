@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="The legend of sir skelebones"
-run/main_scene="uid://ojfdko0opxdv"
+run/main_scene="uid://c2gjkct1uiwl1"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Stats="*uid://c5sdomiamqmiv"
+Music="*uid://c7ogpd1u0eu3d"
 
 [display]
 
