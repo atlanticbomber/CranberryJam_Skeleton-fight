@@ -1,23 +1,15 @@
 [gd_scene format=3 uid="uid://b322hx6y0syrb"]
 
-[ext_resource type="Texture2D" uid="uid://hp7fb7im73db" path="res://Sprites/resize-1794687866381913903134267377000160588.jpg" id="1_hi6vx"]
+[ext_resource type="Texture2D" uid="uid://biqro62cl5ekx" path="res://Sprites/Grass1.png" id="1_hi6vx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nrax6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8h3l"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vjcy3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_hi6vx")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="GroundStrip" type="Node2D" unique_id=2080553464]
+
+[node name="Grass1" type="Sprite2D" parent="." unique_id=483773334]
+texture = ExtResource("1_hi6vx")
 
 [node name="Rightwall" type="StaticBody2D" parent="." unique_id=1108683034]
 position = Vector2(945, 0)
@@ -32,6 +24,3 @@ shape = SubResource("WorldBoundaryShape2D_nrax6")
 position = Vector2(-945, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_t8h3l")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1712132906]
-sprite_frames = SubResource("SpriteFrames_vjcy3")

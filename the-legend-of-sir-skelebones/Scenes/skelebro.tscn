@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c55kltgk0j6d5"]
 
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
-[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_qu763"]
 [ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
 [ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/skelebro/Foot.png" id="3_tn4lu"]
 [ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/skelebro/Body.png" id="4_n648a"]
@@ -9,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/skelebro/Skull.png" id="5_tta51"]
 [ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/skelebro/Hand.png" id="6_8oytp"]
 [ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
-[ext_resource type="Texture2D" uid="uid://brxob5puborph" path="res://Sprites/skelebro/LowerArm.png" id="9_8oytp"]
 
 [sub_resource type="Animation" id="Animation_1caf8"]
 resource_name = "Idle"
@@ -308,10 +306,6 @@ script = ExtResource("1_hodaq")
 metadata/_edit_vertical_guides_ = [-62.0, 62.0]
 metadata/_edit_horizontal_guides_ = [-61.0, 63.0]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=537610508]
-visible = false
-texture = ExtResource("1_qu763")
-
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1453798953]
 
 [node name="BackFoot" type="Sprite2D" parent="Sprite" unique_id=1008916344]
@@ -331,7 +325,7 @@ offset = Vector2(10, -40)
 texture = ExtResource("4_n648a")
 
 [node name="UpperArm" type="Sprite2D" parent="Sprite/Body" unique_id=1573763493]
-z_index = -1
+show_behind_parent = true
 position = Vector2(-2, -2)
 texture = ExtResource("5_1caf8")
 
@@ -361,6 +355,8 @@ shape = SubResource("CapsuleShape2D_l4euk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=865916813]
 zoom = Vector2(1.1, 1.1)
+limit_left = -930
+limit_right = 930
 position_smoothing_enabled = true
 
 [node name="RollCooldown" type="Timer" parent="." unique_id=991862256]
@@ -381,8 +377,3 @@ shape = SubResource("CapsuleShape2D_fn4k1")
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=342455274]
 stream = ExtResource("3_851mo")
-
-[node name="LowerArm" type="Sprite2D" parent="." unique_id=1205652782]
-visible = false
-position = Vector2(-3, -9)
-texture = ExtResource("9_8oytp")
