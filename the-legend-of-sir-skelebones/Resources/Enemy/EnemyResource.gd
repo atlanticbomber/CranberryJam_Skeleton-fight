@@ -9,6 +9,7 @@ class_name EnemyResource
 @export var attackWaitTime: float =  1.0
 @export var projectileFile: String = "res://Scenes/enemyProjectiles/enemy_projectile.tscn"
 @export var VitaminDrop: int = 1
+
 #Projectile Stuff
 @export var melee = false
 @export var projSpeed: float = 300.0

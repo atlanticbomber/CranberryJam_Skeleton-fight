@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0dfn1g4ehexj"]
 
 [ext_resource type="Script" uid="uid://cmeqtbxpcc74q" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://dt4ntw4qxl741" path="res://Sprites/Enemies/Headless.png" id="2_1f0kj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1f0kj"]
 radius = 61.0
@@ -21,9 +21,9 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Enemy" type="CharacterBody2D" unique_id=104442209]
 script = ExtResource("1_1f0kj")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=876297299]
-self_modulate = Color(0.9176778, 0.28919515, 0.04808618, 1)
-texture = ExtResource("1_hghv2")
+[node name="Imp" type="Sprite2D" parent="." unique_id=876297299]
+position = Vector2(0, -20)
+texture = ExtResource("2_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=205097512]
 shape = SubResource("CapsuleShape2D_1f0kj")
@@ -56,8 +56,10 @@ value = 100.0
 show_percentage = false
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=898514714]
-color = Color(0.4801783, 0.8941354, 0, 1)
+color = Color(0.5851683, 0.92991275, 0.1332736, 1)
 energy = 0.8
 texture = SubResource("GradientTexture2D_1f0kj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=152135239]
 
 [connection signal="timeout" from="SnapshotTimer" to="." method="_on_snapshot_timer_timeout"]
