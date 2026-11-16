@@ -57,7 +57,11 @@ func spawn_enemies():
 func choose_random_enemy(distance)-> EnemyResource:
 	var rand = randi_range(0,99)
 	var result
-	if rand < 25:
+	if rand < 10:
+		result = preload("res://Resources/Enemy/Cerberone.tres")
+	elif rand < 25:
+		result = preload("res://Resources/Enemy/Labitary.tres")
+	elif rand < 45:
 		result = preload("res://Resources/Enemy/FastMelee.tres")
 	else:
 		result = preload("res://Resources/Enemy/Headless.tres")
