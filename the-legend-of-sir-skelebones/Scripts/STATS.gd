@@ -38,7 +38,8 @@ signal weaponChange
 #signal PlayerHPChange(value:float)
 
 func init_player_stats():
-	MaxPlayerHP = 100.0
+	MaxPlayerHP = 200.0
 	PlayerHP = MaxPlayerHP
 	PlayerSpeed = 330
 	PlayerAttack = 1.0
+	PlayerLevels = [0,0,0]

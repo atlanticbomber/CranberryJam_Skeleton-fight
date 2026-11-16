@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://clvgi6tynb3yq"]
+
+[ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_var75"]
+
+[resource]
+script = ExtResource("1_var75")
+maxHP = 70.0
+speed = 450.0
+snapshotWaitTime = 0.4
+stopRange = 100.0
+attackDelay = 0.3
+attackWaitTime = 0.5
+metadata/_custom_type_script = "uid://i70lelemux25"
