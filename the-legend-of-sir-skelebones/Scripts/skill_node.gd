@@ -12,13 +12,20 @@ var nodeInfo: Dictionary = {
 	"03":{"sprite": sprites["active"],"cost":[1,0,0,2],"name":"Rib Wrecker","tip":"A strong hammer made from rib, your bulk is gone but the smash is still here"},
 	"04":{"sprite": sprites["active"],"cost":[1,1,1,1],"name":"Skelescythe","tip":"A strong scyther made from skeleton, let the ring of death surround you"},
 	
-	"011":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk+","tip":"Atk+"},
-	"012":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk Spd+","tip":"Atk Spd+"},
-	"013":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Range+","tip":"Range+"},
+	"011":{"sprite": sprites["spec"],"cost":[1,1,0,0],"name":"Atk+","tip":"Atk+"},
+	"012":{"sprite": sprites["spec"],"cost":[1,1,0,0],"name":"Atk Spd+","tip":"Atk Spd+"},
+	"013":{"sprite": sprites["spec"],"cost":[1,1,0,0],"name":"Range+","tip":"Range+"},
 	
-	"021":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Range+","tip":"Range+"},
-	"022":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk Spd+","tip":"Atk Spd+"},
-	"0221":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Bones+","tip":"Bones+"},
+	"021":{"sprite": sprites["spec"],"cost":[1,0,1,0],"name":"Range+","tip":"Range+"},
+	"022":{"sprite": sprites["spec"],"cost":[1,0,1,0],"name":"Atk Spd+","tip":"Atk Spd+"},
+	"0221":{"sprite": sprites["spec"],"cost":[1,1,1,1],"name":"Bones+","tip":"Bones+"},
+	
+	"031":{"sprite": sprites["spec"],"cost":[1,0,0,1],"name":"Atk+","tip":"Atk+"},
+	"0311":{"sprite": sprites["spec"],"cost":[1,0,0,2],"name":"Atk++","tip":"Atk++"},
+	"032":{"sprite": sprites["spec"],"cost":[1,0,0,1],"name":"Atk Spd+","tip":"Atk Spd++"},
+	
+	"041":{"sprite": sprites["spec"],"cost":[1,1,0,1],"name":"Atk Spd+","tip":"Range+"},
+	"042":{"sprite": sprites["spec"],"cost":[1,0,1,1],"name":"Range+","tip":"Atk+"},
 	}
 func _ready() -> void:
 	#die if theres 3 weapons alr
@@ -63,15 +70,20 @@ func _on_pressed() -> void:
 		if name == "01":
 			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/BasicSword.tres")
 			Stats.weaponsAquired+=1
+			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/fist.tres")
 		elif name == "02":
 			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/BasicFemur.tres")
 			Stats.weaponsAquired+=1
+			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/fist.tres")
 		elif name == "03":
 			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/BasicHammer.tres")
 			Stats.weaponsAquired+=1
+			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/fist.tres")
 		elif name == "04":
 			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/BasicSycthe.tres")
 			Stats.weaponsAquired+=1
+			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/fist.tres")
+			
 			
 		#Sword Specs
 		elif name == "011":
@@ -97,7 +109,30 @@ func _on_pressed() -> void:
 			var femur:WeaponResource = load("res://Resources/Weapon/BasicFemur.tres")
 			femur.delay -= 0.1
 			femur.cooldown -=0.1
+		
+		#Hammer
+		elif name == "031":
+			var hammer:WeaponResource = load("res://Resources/Weapon/BasicHammer.tres")
+			hammer.damage += 10
+		elif name == "0311":
+			var hammer:WeaponResource = load("res://Resources/Weapon/BasicHammer.tres")
+			hammer.damage += 20
+		elif name == "032":
+			var hammer:WeaponResource = load("res://Resources/Weapon/BasicHammer.tres")
+			hammer.delay -= 0.2
+			hammer.cooldown -=0.1
 			
+		#Scythe
+		elif name == "041":
+			var scythe:WeaponResource = load("res://Resources/Weapon/BasicSycthe.tres")
+			scythe.delay -= 0.2
+			scythe.cooldown -=0.1
+		elif name == "042":
+			var scythe:WeaponResource = load("res://Resources/Weapon/BasicSycthe.tres")
+			var newShape: CapsuleShape2D= scythe.shape
+			newShape.radius +=50
+			newShape.height +=100
+			scythe.shape = newShape
 			
 	elif Stats.skills[name]:
 		print("bought already")
@@ -108,7 +143,7 @@ func info():
 	if name in nodeInfo:
 		icon = load(nodeInfo[name]["sprite"])
 		text = nodeInfo[name]["name"]
-		if not Stats.skills[name]:
+		if not Stats.skills[str(name)]:
 			text +="\nVitamins: "+str(nodeInfo[name]["cost"][0])
 			text += "\nArms: "+str(nodeInfo[name]["cost"][1]) if (nodeInfo[name]["cost"][1])>0 else ""
 			text += "\nLegs: "+str(nodeInfo[name]["cost"][2]) if (nodeInfo[name]["cost"][2])>0 else ""

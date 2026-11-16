@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		Stats.Bones[randomBone]+=1
 		
 		Stats.Demeter = 0 
-		Stats.MaxDemeter = floori(5 * (1.2**Stats.Vitaminscollected))
+		Stats.MaxDemeter = floori(3 * (1.2**Stats.Vitaminscollected))
 	
 	HealthBar.value = Stats.PlayerHP
 	HealthBar.max_value = Stats.MaxPlayerHP

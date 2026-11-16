@@ -14,6 +14,6 @@ shape = SubResource("CapsuleShape2D_d4rtl")
 towardsCenter = 200.0
 delay = 0.4
 cooldown = 0.4
-damage = 20.0
+damage = 25.0
 texture = ExtResource("2_d4rtl")
 metadata/_custom_type_script = "uid://dk5vp3u7drp0r"

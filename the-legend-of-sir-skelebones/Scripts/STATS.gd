@@ -11,7 +11,7 @@ var Demeter: float
 var Vitamins: int 
 var Vitaminscollected:int 
 # Arms, Legs, Ribs
-var Bones:Array = [10,10,10]
+var Bones:Array = [0,0,0]
 
 var currentScene:String = "Menu"
 
@@ -28,11 +28,9 @@ var skills:Dictionary = {
 	"02":false,#Femurder
 	"03":false,#Rib Wrecker
 	"04":false,#Skelescythe
-	
 	"011":false,#Atk+???
 	"012":false,#Atk Spd+
 	"013":false,#Range
-	
 	"021":false,#Range
 	"022":false,#AtkSpd
 	"0221":false,#Bones
@@ -48,18 +46,26 @@ func init_player_stats():
 	PlayerHP = MaxPlayerHP
 	PlayerSpeed = 330
 	PlayerAttack = 1.0
-	PlayerLevels = [0,0,0]
 	skills = {
 	"0":true, #origin
 	"01":false,#Bone Blade
 	"02":false,#Femurder
 	"03":false,#Rib Wrecker
 	"04":false,#Skelescythe
-	"011":false,#i guess upgrade???
-	"031":false#i guess another upgrade???
+	"011":false,#Atk+???
+	"012":false,#Atk Spd+
+	"013":false,#Range
+	"021":false,#Range
+	"022":false,#AtkSpd
+	"0221":false,#Bones
+	"031":false,#atk
+	"0311":false,#atk
+	"032":false,#atkspd
+	"041":false,#range
+	"042":false,#atkspd
 	}
 	MaxDemeter = 5
 	Demeter = 0.0
-	Vitamins = 10
+	Vitamins = 3
 	Vitaminscollected = 0 
 	PlayerLevels = [0,0,0]

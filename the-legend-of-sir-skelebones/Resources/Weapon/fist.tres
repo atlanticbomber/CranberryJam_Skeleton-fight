@@ -13,5 +13,6 @@ name = "Fist"
 shape = SubResource("CapsuleShape2D_nt1hv")
 delay = 0.1
 cooldown = 0.2
+damage = 15.0
 texture = ExtResource("2_nt1hv")
 metadata/_custom_type_script = "uid://dk5vp3u7drp0r"
