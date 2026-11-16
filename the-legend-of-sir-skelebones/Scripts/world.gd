@@ -71,4 +71,4 @@ func game_end():
 	call_deferred("load_end_screen")
 
 func load_end_screen():
-	character.take_damage(Stats.PlayerHP)
+	character.takeDamage(Stats.PlayerHP)
