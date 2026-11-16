@@ -54,6 +54,7 @@ func EnemyDamage(value:float):
 		if EnemyHP - value <= 0:
 			dying.emit()
 			Stats.Demeter+=EN.VitaminDrop
+			$Death.play()
 			self.queue_free()
 		
 		EnemyHP -= value
@@ -66,7 +67,7 @@ func attack():
 	if timerAttack.is_stopped():
 		timerAttack.start(EN.attackDelay)
 		await timerAttack.timeout
-		
+		$Attack.play()
 		var newBullet = load(EN.projectileFile).instantiate()
 		newBullet.position = position
 		newBullet.direction = (Stats.PlayerLocation - position).normalized()

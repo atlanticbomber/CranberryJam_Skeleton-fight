@@ -71,4 +71,4 @@ func game_end():
 	call_deferred("load_end_screen")
 
 func load_end_screen():
-	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
+	character.take_damage(Stats.PlayerHP)
