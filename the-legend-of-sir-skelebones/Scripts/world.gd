@@ -41,7 +41,7 @@ var enemy_count = 0
 func spawn_enemies():
 	var distance = -farthest_tile
 	var enemy_capac = 20 + 3 * distance / 100
-	var enemies_per_sec = 2 + 28 * (1 - 2 ** ((distance/400) ** 1.5))
+	var enemies_per_sec = 2 + 28 * (1 - 2 ** -((distance/400) ** 1.5))
 	var random = randi_range(0,100)
 	var rand_2 = randi_range(0,enemy_capac * 1.5)
 	if random < enemies_per_sec and enemy_count<(enemy_capac) and enemy_count < rand_2:

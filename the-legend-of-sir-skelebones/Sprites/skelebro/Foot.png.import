@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do212aafq8hw2"
-path="res://.godot/imported/Foot.png-ee1dc3a8f77ed00df22b7c5bd5ff0d0e.ctex"
+path="res://.godot/imported/Foot.png-3ef6eddb9a4ebd2d2f931410719b6007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Skelebro/Foot.png"
-dest_files=["res://.godot/imported/Foot.png-ee1dc3a8f77ed00df22b7c5bd5ff0d0e.ctex"]
+source_file="res://Sprites/skelebro/Foot.png"
+dest_files=["res://.godot/imported/Foot.png-3ef6eddb9a4ebd2d2f931410719b6007.ctex"]
 
 [params]
 
