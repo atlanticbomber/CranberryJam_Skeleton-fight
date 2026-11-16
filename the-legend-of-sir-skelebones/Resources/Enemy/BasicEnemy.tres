@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://boc48dfmmofmd"]
 
 [ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_8taft"]
+[ext_resource type="Texture2D" uid="uid://di6t0h4iormj2" path="res://Sprites/Enemies/HeadlessProjectile.png" id="1_qjfqu"]
+[ext_resource type="Texture2D" uid="uid://dt4ntw4qxl741" path="res://Sprites/Enemies/Headless.png" id="3_7g22k"]
 
 [resource]
 script = ExtResource("1_8taft")
 stopRange = 500.0
+sprite = ExtResource("3_7g22k")
+projTexture = ExtResource("1_qjfqu")
 metadata/_custom_type_script = "uid://i70lelemux25"

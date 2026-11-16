@@ -5,13 +5,15 @@ class_name EnemyProjectile
 @export var distance: float = 100.0
 @export var damage:float = 10.0
 @export var melee:bool = false
-
+@export var texture:Texture
 var direction: Vector2
 var startPosition:Vector2
 func _ready() -> void:
 	startPosition = position
 	if melee:
 		visible = false
+	else: 
+		$CollisionShape2D/Icon.texture = texture
 	
 func _process(delta: float) -> void:
 	position += Vector2(speed,speed) * direction * delta

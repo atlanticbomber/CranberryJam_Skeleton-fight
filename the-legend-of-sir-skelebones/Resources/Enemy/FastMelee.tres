@@ -1,13 +1,20 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://clvgi6tynb3yq"]
 
+[ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="1_6a2dh"]
 [ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_var75"]
+[ext_resource type="Texture2D" uid="uid://s2h21qehf1mf" path="res://Sprites/Enemies/Imp.png" id="3_e54yy"]
 
 [resource]
 script = ExtResource("1_var75")
 maxHP = 70.0
 speed = 450.0
 snapshotWaitTime = 0.4
-stopRange = 100.0
+stopRange = 180.0
 attackDelay = 0.3
 attackWaitTime = 0.5
+sprite = ExtResource("3_e54yy")
+melee = true
+projSpeed = 1000.0
+projDistance = 220.0
+projTexture = ExtResource("1_6a2dh")
 metadata/_custom_type_script = "uid://i70lelemux25"
