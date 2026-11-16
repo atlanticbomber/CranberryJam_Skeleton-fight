@@ -31,7 +31,7 @@ func _input(_event: InputEvent) -> void:
 		queue_free()
 
 func _on_nose_button_pressed() -> void:
-	eyeCheck = eyeCheck+1 if eyeCheck<2 else 0
+	eyeCheck = eyeCheck+1 % 3
 	#print("pressed, now ",eyeCheck)
 	eyeStat()
 

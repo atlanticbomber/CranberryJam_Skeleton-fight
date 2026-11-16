@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://5bri47mbg5di" path="res://Scripts/Skelebro.gd" id="1_hodaq"]
 [ext_resource type="Resource" uid="uid://dq44832xpejvv" path="res://Resources/Weapon/BasicHammer.tres" id="2_4f1mv"]
 [ext_resource type="AudioStream" uid="uid://dcbrnwyq1bl5n" path="res://Sounds/SFX/TempSmack.mp3" id="3_851mo"]
-[ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/Skelebro/Foot.png" id="3_tn4lu"]
-[ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/Skelebro/Body.png" id="4_n648a"]
-[ext_resource type="Texture2D" uid="uid://crh6abp7jyy5f" path="res://Sprites/Skelebro/UpperArm.png" id="5_1caf8"]
-[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/Skelebro/RealFist.png" id="5_8oytp"]
-[ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/Skelebro/Skull.png" id="5_tta51"]
-[ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/Skelebro/Hand.png" id="6_8oytp"]
-[ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/Skelebro/Eye.png" id="6_tta51"]
-[ext_resource type="Texture2D" uid="uid://b1nnxy2out5dv" path="res://Sprites/Skelebro/Bow.png" id="8_1caf8"]
+[ext_resource type="Texture2D" uid="uid://do212aafq8hw2" path="res://Sprites/skelebro/Foot.png" id="3_tn4lu"]
+[ext_resource type="Texture2D" uid="uid://c4s61kilkx4i8" path="res://Sprites/skelebro/Body.png" id="4_n648a"]
+[ext_resource type="Texture2D" uid="uid://crh6abp7jyy5f" path="res://Sprites/skelebro/UpperArm.png" id="5_1caf8"]
+[ext_resource type="Texture2D" uid="uid://bwtirksnivs70" path="res://Sprites/skelebro/RealFist.png" id="5_8oytp"]
+[ext_resource type="Texture2D" uid="uid://kqrc283wkqq1" path="res://Sprites/skelebro/Skull.png" id="5_tta51"]
+[ext_resource type="Texture2D" uid="uid://diuui57m7ao1y" path="res://Sprites/skelebro/Hand.png" id="6_8oytp"]
+[ext_resource type="Texture2D" uid="uid://bgihqvmta6u6b" path="res://Sprites/skelebro/Eye.png" id="6_tta51"]
+[ext_resource type="Texture2D" uid="uid://b1nnxy2out5dv" path="res://Sprites/skelebro/Bow.png" id="8_1caf8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn4k1"]
 radius = 80.0
@@ -654,3 +654,7 @@ one_shot = true
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=342455274]
 stream = ExtResource("3_851mo")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="." unique_id=1985188205]
+
+[node name="Roll" type="AudioStreamPlayer2D" parent="." unique_id=508201272]

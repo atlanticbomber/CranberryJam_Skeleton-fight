@@ -26,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 	if rollBonus==1 and rollTimer.is_stopped() and Input.is_action_just_pressed("roll"):
 		rollBonus = rollConst
 		rollTimer.start(rollWaitTimer)
+		$Roll.play()
 	elif rollBonus > 1:
 		rollBonus -= 0.1
 	else:
@@ -81,6 +82,7 @@ func _input(_event: InputEvent) -> void:
 func takeDamage(damage:int):
 	if IFrames.is_stopped():
 		Stats.PlayerHP -= damage
+		$Hurt.play()
 		IFrames.start(IFramesWaitTime)
 	if Stats.PlayerHP == 0:
 		process_mode = Node.PROCESS_MODE_WHEN_PAUSED
