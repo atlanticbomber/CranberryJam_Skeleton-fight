@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://b8qot1o7yi7sj"]
+
+[ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_hghib"]
+[ext_resource type="Texture2D" uid="uid://di6t0h4iormj2" path="res://Sprites/Enemies/HeadlessProjectile.png" id="1_mykma"]
+[ext_resource type="Texture2D" uid="uid://dt4ntw4qxl741" path="res://Sprites/Enemies/Headless.png" id="3_jy7d0"]
+
+[resource]
+script = ExtResource("1_hghib")
+speed = 320.0
+snapshotWaitTime = 1.0
+stopRange = 400.0
+sprite = ExtResource("3_jy7d0")
+projSpeed = 380.0
+projTexture = ExtResource("1_mykma")
+metadata/_custom_type_script = "uid://i70lelemux25"

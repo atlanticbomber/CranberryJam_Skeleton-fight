@@ -22,18 +22,20 @@ var waitTimeKnock: float = 0.2
 var attackWaitTime: float = EN.attackWaitTime
 var attackDelay: float = EN.attackDelay
 signal dying
+
 func _ready() -> void:
 	$ProgressBar.max_value = MaxEnemyHP
 	$ProgressBar.value = EnemyHP
+	$Imp.texture = EN.sprite
 	print(stopRange)
 
 func _physics_process(_delta: float) -> void:
 	#print(position.distance_to(Stats.PlayerLocation))
 	#print(timerKnock.is_stopped(), timerKnock.time_left)
 	if timerKnock.is_stopped():
-		if position.distance_to(Stats.PlayerLocation) > stopRange:
+		if position.distance_to(Stats.PlayerLocation) > EN.stopRange:
 			velocity = (playerSnapshot - position).normalized() * SPEED
-		elif position.distance_to(Stats.PlayerLocation) < stopRange/2:
+		elif position.distance_to(Stats.PlayerLocation) < EN.stopRange/2:
 			velocity = -(playerSnapshot - position).normalized() * SPEED
 		else:
 			attack()
@@ -72,6 +74,7 @@ func attack():
 		newBullet.distance = EN.projDistance
 		newBullet.damage = EN.projDamage
 		newBullet.melee = EN.melee
+		newBullet.texture = EN.projTexture
 		get_parent().add_child(newBullet)
 		
 		timerAttack.start(EN.attackWaitTime)

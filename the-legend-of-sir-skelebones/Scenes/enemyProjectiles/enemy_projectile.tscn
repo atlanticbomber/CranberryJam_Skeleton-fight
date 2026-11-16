@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" uid="uid://v3ov4fmbfjpk" path="res://Scripts/enemy_projectile.gd" id="1_ibebl"]
 [ext_resource type="Texture2D" uid="uid://ckxqyruq7xd7r" path="res://icon.svg" id="2_gjudp"]
+[ext_resource type="Texture2D" uid="uid://di6t0h4iormj2" path="res://Sprites/Enemies/HeadlessProjectile.png" id="3_vnrm3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibebl"]
-radius = 14.0
+radius = 25.019993
 
 [node name="EnemyProjectile" type="Area2D" unique_id=1302272890]
 script = ExtResource("1_ibebl")
 speed = 300.0
 distance = 1000.0
+texture = ExtResource("2_gjudp")
+metadata/_edit_vertical_guides_ = [-12.0, 12.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554850577]
 rotation = 1.5707964
@@ -18,8 +21,7 @@ shape = SubResource("CircleShape2D_ibebl")
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D" unique_id=1413470676]
 show_behind_parent = true
 rotation = -1.5707964
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_gjudp")
+texture = ExtResource("3_vnrm3")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
