@@ -4,6 +4,7 @@ var map
 var timer
 var spawn_loops = 0
 var farthest_tile = 0
+var spawn_timer
 
 func _init():
 	var tile_map = preload("res://Scenes/tile_map_layer.tscn")
@@ -15,12 +16,17 @@ func _init():
 	timer.timeout.connect(decay_map)
 	add_child(timer)
 	timer.autostart = true
+	spawn_timer = Timer.new()
+	spawn_timer.wait_time = 0.05
+	spawn_timer.timeout.connect(spawn_enemies)
+	spawn_timer.autostart = true
+	add_child(spawn_timer)
 
 func _process(delta: float) -> void:
 	farthest_tile = min(character.global_position.y/100,farthest_tile)
 	if -farthest_tile > map.last_tiled_id-7:
 		map.add_tile()
-	spawn_enemies(-farthest_tile)
+	#spawn_enemies(-farthest_tile)
 
 func _ready() -> void:
 	Music.changeMusic("Battle")
@@ -32,7 +38,8 @@ func decay_map():
 var enemy_template = preload("res://Scenes/enemy.tscn")
 var enemy_count = 0
 
-func spawn_enemies(distance):
+func spawn_enemies():
+	var distance = -farthest_tile
 	var enemy_capac = 20 + 3 * distance / 100
 	var enemies_per_sec = 2 + 28 * (1 - 2 ** ((distance/400) ** 1.5))
 	var random = randi_range(0,100)
