@@ -55,7 +55,13 @@ func spawn_enemies():
 		add_child(enemy)
 		
 func choose_random_enemy(distance)-> EnemyResource:
-	return preload("res://Resources/Enemy/BasicEnemy.tres")
+	var rand = randi_range(0,99)
+	var result
+	if rand < 25:
+		result = preload("res://Resources/Enemy/FastMelee.tres")
+	else:
+		result = preload("res://Resources/Enemy/Headless.tres")
+	return result
 	
 func game_end():
 	call_deferred("load_end_screen")
