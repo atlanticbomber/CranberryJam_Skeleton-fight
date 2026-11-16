@@ -1,26 +1,26 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var EN:EnemyResource = load("res://Resources/Enemy/BasicEnemy.tres")
+@export var EN:EnemyResource 
 
-var MaxEnemyHP: float = EN.maxHP
-var EnemyHP: float = EN.maxHP
+@onready var MaxEnemyHP: float = EN.maxHP
+@onready var EnemyHP: float = EN.maxHP
 
-var SPEED = EN.speed
+@onready var SPEED = EN.speed
 
 var playerSnapshot: Vector2 = Vector2(0,0)
 @onready var timerSnapshot: Timer = $SnapshotTimer
-var waitTimeSnapshot: float = EN.snapshotWaitTime
+@onready var waitTimeSnapshot: float = EN.snapshotWaitTime
 
-var stopRange: float = EN.stopRange
+@onready var stopRange: float = EN.stopRange
 var stopSpeed: float = 0.06 #closer to 0 the smoother
 
 @onready var timerKnock: Timer = $KnockTimer
 var waitTimeKnock: float = 0.2
 
 @onready var timerAttack: Timer = $AttackCooldown
-var attackWaitTime: float = EN.attackWaitTime
-var attackDelay: float = EN.attackDelay
+@onready var attackWaitTime: float = EN.attackWaitTime
+@onready var attackDelay: float = EN.attackDelay
 signal dying
 
 func _ready() -> void:
