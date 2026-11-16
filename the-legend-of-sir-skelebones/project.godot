@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Stats="*uid://c5sdomiamqmiv"
 Music="*uid://c7ogpd1u0eu3d"
+WeaponReset="*uid://dshtcvh8oe27j"
 
 [display]
 

@@ -73,7 +73,7 @@ func _input(_event: InputEvent) -> void:
 		for body in weaponRange.get_overlapping_bodies():
 			if body.has_method("EnemyDamage"):
 				$Attack.play()
-				print(Stats.currentActive)
+				print(Stats.currentActive.damage)
 				body.EnemyDamage(currentWeapon.damage*Stats.PlayerAttack)
 		weaponTimer.start(currentWeapon.cooldown)
 		weaponPlayer.play("return",-1,0.5/currentWeapon.cooldown)
@@ -89,6 +89,8 @@ func takeDamage(damage:int):
 		$Sprite/Body/ActiveUpperArm/AnimationPlayer.play("die")
 		await $Sprite/Body/ActiveUpperArm/AnimationPlayer.animation_finished
 		get_tree().paused = false
+		
+		
 		get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 	
 func weaponChange():

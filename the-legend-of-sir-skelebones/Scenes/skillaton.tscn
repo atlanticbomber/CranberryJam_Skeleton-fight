@@ -617,17 +617,45 @@ offset_bottom = 155.9989
 
 [node name="011" parent="SkillTree" unique_id=1645607658 instance=ExtResource("3_c6shf")]
 layout_mode = 1
-offset_left = 401.0
-offset_top = -239.0011
-offset_right = 501.0
-offset_bottom = -139.0011
+offset_left = 376.0
+offset_top = -342.0
+offset_right = 476.0
+offset_bottom = -242.0
 
-[node name="031" parent="SkillTree" unique_id=1354172257 instance=ExtResource("3_c6shf")]
+[node name="012" parent="SkillTree" unique_id=1199571745 instance=ExtResource("3_c6shf")]
 layout_mode = 1
-offset_left = -418.0
-offset_top = -33.0011
-offset_right = -318.0
-offset_bottom = 66.9989
+offset_left = 354.0
+offset_top = -218.0
+offset_right = 454.0
+offset_bottom = -118.0
+
+[node name="013" parent="SkillTree" unique_id=1043635469 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = 469.0
+offset_top = -130.0
+offset_right = 569.0
+offset_bottom = -30.0
+
+[node name="021" parent="SkillTree" unique_id=317976836 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -367.0
+offset_top = -277.0
+offset_right = -267.0
+offset_bottom = -177.0
+
+[node name="022" parent="SkillTree" unique_id=161878236 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -390.0
+offset_top = -113.0
+offset_right = -290.0
+offset_bottom = -13.0
+
+[node name="0221" parent="SkillTree" unique_id=2021606367 instance=ExtResource("3_c6shf")]
+layout_mode = 1
+offset_left = -555.0
+offset_top = -195.0
+offset_right = -455.0
+offset_bottom = -95.0
 
 [node name="Hand" type="TextureRect" parent="." unique_id=266314377]
 custom_minimum_size = Vector2(300, 150)
@@ -661,6 +689,7 @@ texture = ExtResource("8_cuo60")
 flip_h = true
 
 [node name="Front" type="TextureRect" parent="." unique_id=1429736701]
+visible = false
 self_modulate = Color(0.012741645, 0.0037785047, 0.14282048, 0.3882353)
 layout_mode = 0
 offset_left = -200.0

@@ -11,6 +11,14 @@ var nodeInfo: Dictionary = {
 	"02":{"sprite": sprites["active"],"cost":[1,0,2,0],"name":"Femurder","tip":"A strong spear made from leg, range is your only friend"},
 	"03":{"sprite": sprites["active"],"cost":[1,0,0,2],"name":"Rib Wrecker","tip":"A strong hammer made from rib, your bulk is gone but the smash is still here"},
 	"04":{"sprite": sprites["active"],"cost":[1,1,1,1],"name":"Skelescythe","tip":"A strong scyther made from skeleton, let the ring of death surround you"},
+	
+	"011":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk+","tip":"Atk+"},
+	"012":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk Spd+","tip":"Atk Spd+"},
+	"013":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Range+","tip":"Range+"},
+	
+	"021":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Range+","tip":"Range+"},
+	"022":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Atk Spd+","tip":"Atk Spd+"},
+	"0221":{"sprite": sprites["spec"],"cost":[1,0,0,0],"name":"Bones+","tip":"Bones+"},
 	}
 func _ready() -> void:
 	#die if theres 3 weapons alr
@@ -23,8 +31,8 @@ func _ready() -> void:
 		#print(name.erase(name.length()-1))
 		var searchNode = name.erase(name.length()-1)
 		
-		if not Stats.skills[searchNode]:
-				visible = false
+		#if not Stats.skills[searchNode]:
+				#visible = false
 				
 		for node in get_parent().get_children():
 			if node.name == searchNode:
@@ -64,6 +72,32 @@ func _on_pressed() -> void:
 		elif name == "04":
 			get_parent().get_parent().get_parent().get_parent().slots[Stats.weaponsAquired] = load("res://Resources/Weapon/BasicSycthe.tres")
 			Stats.weaponsAquired+=1
+			
+		#Sword Specs
+		elif name == "011":
+			var sword:WeaponResource = load("res://Resources/Weapon/BasicSword.tres")
+			sword.damage += 10
+		elif name == "012":
+			var sword:WeaponResource = load("res://Resources/Weapon/BasicSword.tres")
+			sword.delay -= 0.1
+			sword.cooldown -=0.1
+		elif name == "013":
+			var sword:WeaponResource = load("res://Resources/Weapon/BasicSword.tres")
+			var newShape: CapsuleShape2D= sword.shape
+			newShape.height +=100
+			sword.shape = newShape
+			
+		#Femurder Specs
+		elif name == "021":
+			var femur:WeaponResource = load("res://Resources/Weapon/BasicFemur.tres")
+			var newShape: CapsuleShape2D= femur.shape
+			newShape.height +=150
+			femur.shape = newShape
+		elif name == "022":
+			var femur:WeaponResource = load("res://Resources/Weapon/BasicFemur.tres")
+			femur.delay -= 0.1
+			femur.cooldown -=0.1
+			
 			
 	elif Stats.skills[name]:
 		print("bought already")

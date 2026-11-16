@@ -28,8 +28,14 @@ var skills:Dictionary = {
 	"02":false,#Femurder
 	"03":false,#Rib Wrecker
 	"04":false,#Skelescythe
-	"011":false,#i guess upgrade???
-	"031":false#i guess another upgrade???
+	
+	"011":false,#Atk+???
+	"012":false,#Atk Spd+
+	"013":false,#Range
+	
+	"021":false,#Range
+	"022":false,#AtkSpd
+	"0221":false,#Bones
 }
 
 var currentActive: WeaponResource = load("res://Resources/Weapon/fist.tres")
