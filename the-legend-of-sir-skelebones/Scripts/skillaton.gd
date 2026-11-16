@@ -45,7 +45,7 @@ func eyeStat():
 	$Head/NumberEyecon.visible =true
 	$AnimationPlayer.play("blink")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Ribs/OriginFront/Label.text = "Vitamins: "+str(Stats.Vitamins)+"
 	Arms: " + str(Stats.Bones[0])+"
 	Legs: " + str(Stats.Bones[1])+"
@@ -57,3 +57,11 @@ func _on_number_eye_button_pressed() -> void:
 		Stats.Vitamins-=1
 		Stats.levelUpdate()
 		eyeStat()
+
+
+func _on_button_pressed() -> void:
+	if Stats.Vitamins>0:
+		Stats.Vitamins-=1
+		Stats.PlayerHP+= 0.3*Stats.MaxPlayerHP
+		if Stats.PlayerHP > Stats.MaxPlayerHP:
+			Stats.PlayerHP = Stats.MaxPlayerHP
