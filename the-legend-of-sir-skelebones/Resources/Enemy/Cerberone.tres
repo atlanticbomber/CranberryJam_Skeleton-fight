@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://rj3bm5ujju7h"]
+
+[ext_resource type="Texture2D" uid="uid://di6t0h4iormj2" path="res://Sprites/Enemies/HeadlessProjectile.png" id="1_1jhdk"]
+[ext_resource type="Script" uid="uid://i70lelemux25" path="res://Resources/Enemy/EnemyResource.gd" id="1_sy641"]
+[ext_resource type="Texture2D" uid="uid://h8j174vpprbc" path="res://Sprites/Enemies/Cerberone.png" id="3_wgvqo"]
+
+[resource]
+script = ExtResource("1_sy641")
+maxHP = 250.0
+speed = 200.0
+VitaminDrop = 2
+sprite = ExtResource("3_wgvqo")
+melee = true
+projSpeed = 1000.0
+projDistance = 300.0
+projTexture = ExtResource("1_1jhdk")
+metadata/_custom_type_script = "uid://i70lelemux25"

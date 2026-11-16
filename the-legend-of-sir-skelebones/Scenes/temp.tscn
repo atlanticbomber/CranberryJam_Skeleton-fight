@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c55kltgk0j6d5" path="res://Scenes/skelebro.tscn" id="2_0pn8h"]
 [ext_resource type="PackedScene" uid="uid://cax1c2xwd5jge" path="res://Scenes/game_ui.tscn" id="3_0pn8h"]
 [ext_resource type="PackedScene" uid="uid://0dfn1g4ehexj" path="res://Scenes/enemy.tscn" id="3_tj4h3"]
-[ext_resource type="Resource" uid="uid://b8qot1o7yi7sj" path="res://Resources/Enemy/Headless.tres" id="5_kgdlg"]
-[ext_resource type="Resource" uid="uid://clvgi6tynb3yq" path="res://Resources/Enemy/FastMelee.tres" id="6_kgdlg"]
+[ext_resource type="Resource" uid="uid://bjrwlxv3gfbft" path="res://Resources/Enemy/Labitary.tres" id="5_kgdlg"]
+[ext_resource type="Resource" uid="uid://rj3bm5ujju7h" path="res://Resources/Enemy/Cerberone.tres" id="7_ip1se"]
 
 [node name="Temp" type="Node2D" unique_id=1692386343]
 
@@ -39,4 +39,12 @@ EN = ExtResource("5_kgdlg")
 
 [node name="Enemy2" parent="." unique_id=1993680582 instance=ExtResource("3_tj4h3")]
 position = Vector2(-124, 684)
-EN = ExtResource("6_kgdlg")
+EN = ExtResource("5_kgdlg")
+
+[node name="Enemy3" parent="." unique_id=1341171763 instance=ExtResource("3_tj4h3")]
+position = Vector2(826, 640)
+EN = ExtResource("7_ip1se")
+
+[node name="Enemy4" parent="." unique_id=1636275131 instance=ExtResource("3_tj4h3")]
+position = Vector2(-140, 270)
+EN = ExtResource("7_ip1se")
